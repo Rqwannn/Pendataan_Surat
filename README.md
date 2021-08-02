@@ -1,5 +1,5 @@
-# Aplikasi pendataan surat yang berbasis di web
-# Abis di clone atau download buka command terus ketik
+## Aplikasi pendataan surat yang berbasis di web
+### Abis di clone atau download buka command terus ketik
 
 - Composer require laravel/ui
 - php artisan ui vue
