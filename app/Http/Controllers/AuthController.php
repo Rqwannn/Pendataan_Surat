@@ -18,7 +18,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        // $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     public function getAuthenticatedUser()
@@ -63,12 +63,6 @@ class AuthController extends Controller
         } catch (JWTException $e) {
             return response()->json(["status" => false, 'error' => 'could_not_create_token'], 500);
         }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Find Emial.
-        |--------------------------------------------------------------------------
-        */
 
         $user = UsersModel::where('username', $input['username'])->first();
         if (!$user) {
