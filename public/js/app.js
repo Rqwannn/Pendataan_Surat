@@ -1851,16 +1851,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      question: '',
-      answer: 'Saya tidak dapat memberikan jawaban sampai anda bertanya kepada saya!',
-      Title: "Home"
+      Title: "Home",
+      DataSurat: []
     };
   },
   watch: {
@@ -1869,31 +1864,12 @@ __webpack_require__.r(__webpack_exports__);
       handler: function handler() {
         document.title = this.Title;
       }
-    },
-    question: function question(newQuestion, oldQuestion) {
-      this.answer = 'Waiting for you to stop typing...';
-      this.GetAnswer();
     }
   },
-  created: function created() {
-    this.GetAnswer = _.debounce(this.getAnswer, 500);
+  mounted: function mounted() {
+    this.getSurat();
   },
-  methods: {
-    getAnswer: function getAnswer() {
-      if (this.question.indexOf('?') === -1) {
-        this.answer = 'Pertanyaan biasanya berisi tanda tanya. ;-)';
-        return;
-      }
-
-      this.answer = 'Berfikir...';
-      var vm = this;
-      axios.get('https://yesno.wtf/api').then(function (response) {
-        vm.answer = _.capitalize(response.data.answer);
-      })["catch"](function (error) {
-        vm.answer = 'Error! Tidak dapat meraih API. ' + error;
-      });
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -37546,32 +37522,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [
-      _vm._v("\n        Tanyakan pertanyaan iya/tidak:\n        "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.question,
-            expression: "question"
-          }
-        ],
-        domProps: { value: _vm.question },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.question = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.answer))])
-  ])
+  return _c("div")
 }
 var staticRenderFns = []
 render._withStripped = true
