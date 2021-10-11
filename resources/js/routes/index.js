@@ -10,13 +10,13 @@ import Login from "../page/auth/login.vue"
 const Url = [
     {
         name : "Home",
-        path : "/Home",
-        component : Home
+        path : "/login",
+        component : Login
     },
     {
         name : "Login",
         path : "/",
-        component : Login
+        component : Home
     }
 ];
 

@@ -8,7 +8,7 @@
     export default{
         data () {
             return {
-                Title : "Home",
+                Title : "Home | Simail",
             }
         },
         watch: {
