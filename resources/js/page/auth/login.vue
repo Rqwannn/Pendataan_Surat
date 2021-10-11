@@ -7,20 +7,21 @@
             <div class="col-md-12">
               <div class="form-block">
                   <div class="mb-4">
-                  <h3>Sign In to <strong>Colorlib</strong></h3>
+                  <h3>Sign In</h3>
                   <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
                 </div>
                 <form action="" method="post" @submit.prevent="handlerSubmit({name: 'Home'})">
+
                   <div class="form-group first">
                     <label for="username">Username</label>
-                    <input type="text" v-model="Username" class="form-control" id="username">
+                    <input type="text" v-model="Form.username" class="form-control" id="username">
                   </div>
 
                   <p style="font-size: 13px;" class="text-danger" v-if="Auth">{{WrongUser}}</p>
                   
                   <div class="form-group last mb-4">
                     <label for="password">Password</label>
-                    <input type="password" v-model="Password" class="form-control" id="password">
+                    <input type="password" v-model="Form.password" class="form-control" id="password">
                   </div>
                   
                   <p style="font-size: 13px;" class="text-danger" v-if="Auth">{{WrongPass}}</p>
@@ -55,11 +56,13 @@
         data () {
             return {
                 Title : "Login",
-                Username: "",
-                Password: "",
+                Form: {
+                  username: "",
+                  password: ""
+                },
                 Auth: false,
                 WrongUser: "",
-                WrongPass: ""
+                WrongPass: "",
             }
         },
         watch: {
@@ -78,18 +81,33 @@
                 this.Auth = false
                 this.WrongUser = ""
                 this.WrongPass = ""
+                this.Massage = ""
 
                 for(let i = 1; i <= 3; i++){
-                    if(this.Username.length == 0 && i == 1){
+                    if(this.Form.username.length == 0 && i == 1){
                         this.Auth = true
-                        this.WrongUser = "Harap Isi Username Anda"
-                    } else if(this.Password.length == 0 && i == 2) {
+                        this.WrongUser = "Username Must Be Added"
+                    } else if(this.Form.password.length == 0 && i == 2) {
                         this.Auth = true
-                        this.WrongPass = "Harap Isi Password Anda"
+                        this.WrongPass = "Password Must Be Added"
                     } else if(!this.Auth && i == 3) {
-                        this.$router.push(`/${URL.name}`).catch(() => {
+                        axios.post('/api/login', this.Form).then((response) => {
+                          if(response.data.status){
+                              this.$router.push(`/${URL.name}`).catch(() => {
 
-                        });
+                              });
+                          } else {
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: `${response.data.message}`,
+                            })
+                          }
+                        }).catch((error) => {
+                            if(error.response.status == '403'){
+                                this.errors = error.response.data.pesan
+                            }
+                        })
                     }
                 }
             }

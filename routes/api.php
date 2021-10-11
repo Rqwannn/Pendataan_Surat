@@ -20,8 +20,7 @@ Route::post('/login', [AuthController::class, "login"]);
 | Route that can be accessed after login
 |-----------------------------
 */
-Route::group(["middleware" => "auth:api"], function() {
+Route::group(["middleware" => "auth:api"], function () {
     Route::get('/user', [AuthController::class, "user"]);
     Route::resource('/incoming_mails', IncomingMailController::class);
 });
-

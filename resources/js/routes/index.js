@@ -21,7 +21,8 @@ const Url = [
 ];
 
 const router = new VueRouter({
-    linkActiveClass: "Active",
+    // linkActiveClass: "active",
+    linkExactActiveClass: "active",
     mode: "history",
     routes: Url
 });
