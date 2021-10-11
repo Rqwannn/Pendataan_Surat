@@ -20,8 +20,8 @@
                 }
             },
         },
-        mounted(){
-            this.getSurat();
+        created() {
+            this.$emit('header', 'Dashbord');
         },
         methods: {
         }
