@@ -11,4 +11,12 @@ import router from './routes/index.js'
 
 new Vue({
     router,
+    data : {
+        SetHeader: ""
+    },
+    methods: {
+        ChangeHeader: function(event){
+            this.SetHeader = event;
+        }
+    }
 }).$mount('#app')
