@@ -9,7 +9,6 @@
         data () {
             return {
                 Title : "Home",
-                DataSurat : []
             }
         },
         watch: {
@@ -23,7 +22,5 @@
         created() {
             this.$emit('header', 'Dashbord');
         },
-        methods: {
-        }
     }
 </script>
