@@ -2419,7 +2419,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      Title: "Home"
+      Title: "Home | Simail"
     };
   },
   components: {
@@ -2491,23 +2491,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      Title: "Login",
+      Title: "Login | Simail",
       Form: {
         username: "",
         password: ""
@@ -39971,15 +39958,7 @@ var render = function() {
                       staticClass:
                         "btn btn-pill text-white btn-block btn-primary",
                       attrs: { type: "submit", value: "Log In" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      { staticClass: "d-block text-center my-4 text-muted" },
-                      [_vm._v(" or sign in with")]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(1)
+                    })
                   ]
                 )
               ])
@@ -39996,30 +39975,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mb-4" }, [
-      _c("h3", [_vm._v("Sign In")]),
+      _c("h3", [_vm._v("Sign In to "), _c("strong", [_vm._v("Simail")])]),
       _vm._v(" "),
       _c("p", { staticClass: "mb-4" }, [
-        _vm._v(
-          "Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing."
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "social-login text-center" }, [
-      _c("a", { staticClass: "facebook", attrs: { href: "#" } }, [
-        _c("span", { staticClass: "icon-facebook mr-3" })
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "twitter", attrs: { href: "#" } }, [
-        _c("span", { staticClass: "icon-twitter mr-3" })
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "google", attrs: { href: "#" } }, [
-        _c("span", { staticClass: "icon-google mr-3" })
+        _vm._v("Please Login first to access this as administrator.")
       ])
     ])
   }

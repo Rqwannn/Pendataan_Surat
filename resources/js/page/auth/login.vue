@@ -7,8 +7,8 @@
             <div class="col-md-12">
               <div class="form-block">
                   <div class="mb-4">
-                  <h3>Sign In</h3>
-                  <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+                  <h3>Sign In to <strong>Simail</strong></h3>
+                  <p class="mb-4">Please Login first to access this as administrator.</p>
                 </div>
                 <form action="" method="post" @submit.prevent="handlerSubmit({name: 'Home'})">
 
@@ -28,19 +28,6 @@
 
                   <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
 
-                  <span class="d-block text-center my-4 text-muted"> or sign in with</span>
-                  
-                  <div class="social-login text-center">
-                    <a href="#" class="facebook">
-                      <span class="icon-facebook mr-3"></span> 
-                    </a>
-                    <a href="#" class="twitter">
-                      <span class="icon-twitter mr-3"></span> 
-                    </a>
-                    <a href="#" class="google">
-                      <span class="icon-google mr-3"></span> 
-                    </a>
-                  </div>
                 </form>
               </div>
             </div>
@@ -55,7 +42,7 @@
     export default{
         data () {
             return {
-                Title : "Login",
+                Title : "Login | Simail",
                 Form: {
                   username: "",
                   password: ""
