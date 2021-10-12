@@ -78,11 +78,34 @@
                         this.Auth = true
                         this.WrongPass = "Password Must Be Added"
                     } else if(!this.Auth && i == 3) {
-                        axios.post('/api/login', this.Form).then((response) => {
-                          if(response.data.status){
-                              this.$router.push(`/${URL.name}`).catch(() => {
 
-                              });
+                        let config = {
+                              headers: {
+                                "Accept": "application/json",
+                              }
+                            }
+
+
+                        axios.post('/api/login', this.Form, config).then((response) => {
+                          if(response.data.status){
+
+                            const Time = new Date().getTime();
+                            const tzoffset = new Date().getTimezoneOffset() * 60000;
+                            const Tomorrow = new Date(Time + 24 * 60 * 60 * 1000 - tzoffset).getTime();
+                            const data = {
+                              id_user: response.data.data.id_user,
+                              name: response.data.data.name,
+                              username: response.data.data.username,
+                              status: response.data.status,
+                              token: response.data.token,
+                              role: response.data.data.role,
+                              waktu: Tomorrow
+                            }
+                            localStorage.setItem('Authentication', JSON.stringify(data));
+
+                            this.$router.push(`/${URL.name}`).catch(() => {
+
+                            });
                           } else {
                             Swal.fire({
                               icon: 'error',
@@ -91,9 +114,10 @@
                             })
                           }
                         }).catch((error) => {
-                            if(error.response.status == '403'){
-                                this.errors = error.response.data.pesan
-                            }
+                          console.log(error);
+                            // if(error.response.status == '403'){
+                            //     this.errors = error.response.data.pesan
+                            // }
                         })
                     }
                 }

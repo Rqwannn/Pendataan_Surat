@@ -2415,6 +2415,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2435,6 +2437,1039 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.$emit('header', 'Login');
+    this.$emit('seturl', "".concat(this.$route.path));
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      Title: "Surat Masuk | Simail"
+    };
+  },
+  components: {
+    'Header': _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  watch: {
+    title: {
+      immediate: true,
+      handler: function handler() {
+        document.title = this.Title;
+      }
+    }
+  },
+  created: function created() {
+    this.$emit('seturl', "".concat(this.$route.path));
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      Title: "Surat Masuk | Simail"
+    };
+  },
+  components: {
+    'Header': _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  watch: {
+    title: {
+      immediate: true,
+      handler: function handler() {
+        document.title = this.Title;
+      }
+    }
+  },
+  created: function created() {
+    this.$emit('seturl', "".concat(this.$route.path));
   }
 });
 
@@ -2532,8 +3567,27 @@ __webpack_require__.r(__webpack_exports__);
           this.Auth = true;
           this.WrongPass = "Password Must Be Added";
         } else if (!this.Auth && i == 3) {
-          axios.post('/api/login', this.Form).then(function (response) {
+          var config = {
+            headers: {
+              "Accept": "application/json"
+            }
+          };
+          axios.post('/api/login', this.Form, config).then(function (response) {
             if (response.data.status) {
+              var Time = new Date().getTime();
+              var tzoffset = new Date().getTimezoneOffset() * 60000;
+              var Tomorrow = new Date(Time + 24 * 60 * 60 * 1000 - tzoffset).getTime();
+              var data = {
+                id_user: response.data.data.id_user,
+                name: response.data.data.name,
+                username: response.data.data.username,
+                status: response.data.status,
+                token: response.data.token,
+                role: response.data.data.role,
+                waktu: Tomorrow
+              };
+              localStorage.setItem('Authentication', JSON.stringify(data));
+
               _this.$router.push("/".concat(URL.name))["catch"](function () {});
             } else {
               Swal.fire({
@@ -2543,9 +3597,9 @@ __webpack_require__.r(__webpack_exports__);
               });
             }
           })["catch"](function (error) {
-            if (error.response.status == '403') {
-              _this.errors = error.response.data.pesan;
-            }
+            console.log(error); // if(error.response.status == '403'){
+            //     this.errors = error.response.data.pesan
+            // }
           });
         }
       }
@@ -2578,6 +3632,30 @@ new Vue({
   methods: {
     ChangeHeader: function ChangeHeader(event) {
       this.SetHeader = event;
+    },
+    checkTokens: function checkTokens(event) {
+      if (JSON.parse(localStorage.getItem('Authentication'))) {
+        var getStorage = JSON.parse(localStorage.getItem('Authentication'));
+        var Time = new Date().getTime();
+
+        if (getStorage.waktu != null) {
+          if (Time > getStorage.waktu) {
+            var data = {
+              status: false
+            };
+            localStorage.setItem('Authentication', JSON.stringify(data));
+            this.$router.push("/")["catch"](function () {});
+          }
+        }
+
+        if (getStorage.status) {
+          this.$router.push("".concat(event))["catch"](function () {});
+        } else {
+          this.$router.push("/")["catch"](function () {});
+        }
+      } else {
+        this.$router.push("/")["catch"](function () {});
+      }
     }
   }
 }).$mount('#app');
@@ -2643,20 +3721,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _page_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../page/Home.vue */ "./resources/js/page/Home.vue");
 /* harmony import */ var _page_auth_login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../page/auth/login.vue */ "./resources/js/page/auth/login.vue");
+/* harmony import */ var _page_SuratMasuk_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../page/SuratMasuk.vue */ "./resources/js/page/SuratMasuk.vue");
+/* harmony import */ var _page_SuratKeluar_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../page/SuratKeluar.vue */ "./resources/js/page/SuratKeluar.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default); // Import File
 
 
 
+
+
 var Url = [{
+  name: "Login",
+  path: "/",
+  component: _page_auth_login_vue__WEBPACK_IMPORTED_MODULE_3__.default
+}, {
   name: "Home",
   path: "/Home",
   component: _page_Home_vue__WEBPACK_IMPORTED_MODULE_2__.default
 }, {
-  name: "Login",
-  path: "/",
-  component: _page_auth_login_vue__WEBPACK_IMPORTED_MODULE_3__.default
+  name: "SuratMasuk",
+  path: "/SuratMasuk",
+  component: _page_SuratMasuk_vue__WEBPACK_IMPORTED_MODULE_4__.default
+}, {
+  name: "SuratKeluar",
+  path: "/SuratKeluar",
+  component: _page_SuratKeluar_vue__WEBPACK_IMPORTED_MODULE_5__.default
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
   // linkActiveClass: "active",
@@ -38129,6 +39219,84 @@ component.options.__file = "resources/js/page/Home.vue"
 
 /***/ }),
 
+/***/ "./resources/js/page/SuratKeluar.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/page/SuratKeluar.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SuratKeluar.vue?vue&type=template&id=a96b8cd6& */ "./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6&");
+/* harmony import */ var _SuratKeluar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SuratKeluar.vue?vue&type=script&lang=js& */ "./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SuratKeluar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/page/SuratKeluar.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/page/SuratMasuk.vue":
+/*!******************************************!*\
+  !*** ./resources/js/page/SuratMasuk.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SuratMasuk.vue?vue&type=template&id=a29e8bf8& */ "./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8&");
+/* harmony import */ var _SuratMasuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SuratMasuk.vue?vue&type=script&lang=js& */ "./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SuratMasuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/page/SuratMasuk.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/page/auth/login.vue":
 /*!******************************************!*\
   !*** ./resources/js/page/auth/login.vue ***!
@@ -38200,6 +39368,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratKeluar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SuratKeluar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratKeluar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SuratMasuk.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/page/auth/login.vue?vue&type=script&lang=js&":
 /*!*******************************************************************!*\
   !*** ./resources/js/page/auth/login.vue?vue&type=script&lang=js& ***!
@@ -38246,6 +39446,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_1d9ee871___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_1d9ee871___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=1d9ee871& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/Home.vue?vue&type=template&id=1d9ee871&");
+
+
+/***/ }),
+
+/***/ "./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratKeluar_vue_vue_type_template_id_a96b8cd6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SuratKeluar.vue?vue&type=template&id=a96b8cd6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6&");
+
+
+/***/ }),
+
+/***/ "./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SuratMasuk_vue_vue_type_template_id_a29e8bf8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SuratMasuk.vue?vue&type=template&id=a29e8bf8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8&");
 
 
 /***/ }),
@@ -38321,9 +39555,39 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item",
+                      attrs: { tag: "li", to: { name: "SuratMasuk" } }
+                    },
+                    [
+                      _c("a", { staticClass: "nav-link" }, [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("library_books")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Surat Masuk")])
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-item",
+                      attrs: { tag: "li", to: { name: "SuratKeluar" } }
+                    },
+                    [
+                      _c("a", { staticClass: "nav-link" }, [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("library_books")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Surat Keluar")])
+                      ])
+                    ]
+                  )
                 ],
                 1
               )
@@ -38346,30 +39610,6 @@ var staticRenderFns = [
         },
         [_vm._v("Creative Tim")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item " }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "./user.html" } }, [
-        _c("i", { staticClass: "material-icons" }, [_vm._v("library_books")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Surat Masuk")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item " }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "./tables.html" } }, [
-        _c("i", { staticClass: "material-icons" }, [_vm._v("library_books")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Surat Keluar")])
-      ])
     ])
   }
 ]
@@ -38395,13 +39635,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dark-edition" }, [
-    _c(
-      "div",
-      { staticClass: "wrapper" },
-      [_c("Header"), _vm._v(" "), _vm._m(0)],
-      1
-    )
+  return _c("div", [
+    _c("div", { staticClass: "dark-edition" }, [
+      _c(
+        "div",
+        { staticClass: "wrapper" },
+        [_c("Header"), _vm._v(" "), _vm._m(0)],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -39826,6 +41068,1674 @@ var staticRenderFns = [
                 [_vm._v("Creative Tim")]
               ),
               _vm._v(" for a better web.\n                    ")
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratKeluar.vue?vue&type=template&id=a96b8cd6& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "dark-edition" }, [
+    _c(
+      "div",
+      { staticClass: "wrapper" },
+      [_c("Header"), _vm._v(" "), _vm._m(0)],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-panel" }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
+          attrs: { id: "navigation-example" }
+        },
+        [
+          _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "navbar-wrapper" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "navbar-brand",
+                  attrs: { href: "javascript:void(0)" }
+                },
+                [_vm._v("Table List")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "navbar-toggler",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "collapse",
+                  "aria-controls": "navigation-index",
+                  "aria-expanded": "false",
+                  "aria-label": "Toggle navigation",
+                  "data-target": "#navigation-example"
+                }
+              },
+              [
+                _c("span", { staticClass: "sr-only" }, [
+                  _vm._v("Toggle navigation")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse navbar-collapse justify-content-end" },
+              [
+                _c("form", { staticClass: "navbar-form" }, [
+                  _c("div", { staticClass: "input-group no-border" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        value: "",
+                        placeholder: "Search..."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default btn-round btn-just-icon",
+                        attrs: { type: "submit" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("search")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ripple-container" })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "navbar-nav" }, [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("dashboard")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Stats\n                                    "
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item dropdown" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          href: "javscript:void(0)",
+                          id: "navbarDropdownMenuLink",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("notifications")
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "notification" }, [
+                          _vm._v("5")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Some Actions\n                                    "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu dropdown-menu-right",
+                        attrs: { "aria-labelledby": "navbarDropdownMenuLink" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [
+                            _vm._v(
+                              "Mike John responded to your\n                                        email"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("You have 5 new tasks")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("You're now friend with Andrew")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("Another Notification")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("Another One")]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("person")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Account\n                                    "
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-header card-header-primary" }, [
+                  _c("h4", { staticClass: "card-title " }, [
+                    _vm._v(
+                      "\n                                        Simple Table\n                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v(
+                      "\n                                        Here is a subtitle for this table\n                                    "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table" }, [
+                      _c("thead", { staticClass: " text-primary" }, [
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    ID\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Name\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Country\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    City\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Salary\n                                                "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        1\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Dakota Rice\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Niger\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Oud-Turnhout\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $36,738\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        2\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Minerva Hooper\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Curaçao\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sinaai-Waas\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $23,789\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        3\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sage Rodriguez\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Netherlands\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Baileux\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $56,142\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        4\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Philip Chaney\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Korea, South\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Overland Park\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $38,735\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        5\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Doris Greene\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Malawi\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Feldkirchen in\n                                                        Kärnten\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $63,542\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        6\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Mason Porter\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Chile\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Gloucester\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $78,615\n                                                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card card-plain" }, [
+                _c("div", { staticClass: "card-header card-header-primary" }, [
+                  _c("h4", { staticClass: "card-title mt-0" }, [
+                    _vm._v(
+                      "\n                                        Table on Plain Background\n                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v(
+                      "\n                                        Here is a subtitle for this table\n                                    "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-hover" }, [
+                      _c("thead", {}, [
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    ID\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Name\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Country\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    City\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Salary\n                                                "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        1\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Dakota Rice\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Niger\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Oud-Turnhout\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $36,738\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        2\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Minerva Hooper\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Curaçao\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sinaai-Waas\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $23,789\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        3\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sage Rodriguez\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Netherlands\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Baileux\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $56,142\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        4\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Philip Chaney\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Korea, South\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Overland Park\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $38,735\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        5\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Doris Greene\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Malawi\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Feldkirchen in\n                                                        Kärnten\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $63,542\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        6\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Mason Porter\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Chile\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Gloucester\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $78,615\n                                                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "footer" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("nav", { staticClass: "float-left" }, [
+            _c("ul", [
+              _c("li", [
+                _c("a", { attrs: { href: "https://www.creative-tim.com" } }, [
+                  _vm._v(
+                    "\n                                    Creative Tim\n                                "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  { attrs: { href: "https://creative-tim.com/presentation" } },
+                  [
+                    _vm._v(
+                      "\n                                    About Us\n                                "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "http://blog.creative-tim.com" } }, [
+                  _vm._v(
+                    "\n                                    Blog\n                                "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  { attrs: { href: "https://www.creative-tim.com/license" } },
+                  [
+                    _vm._v(
+                      "\n                                    Licenses\n                                "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "copyright float-right", attrs: { id: "date" } },
+            [
+              _vm._v(
+                "\n                        , made with\n                        "
+              ),
+              _c("i", { staticClass: "material-icons" }, [_vm._v("favorite")]),
+              _vm._v(" by\n                        "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://www.creative-tim.com",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("Creative Tim")]
+              ),
+              _vm._v(
+                "\n                        for a better web.\n                    "
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/SuratMasuk.vue?vue&type=template&id=a29e8bf8& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "dark-edition" }, [
+    _c(
+      "div",
+      { staticClass: "wrapper" },
+      [_c("Header"), _vm._v(" "), _vm._m(0)],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-panel" }, [
+      _c(
+        "nav",
+        {
+          staticClass:
+            "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
+          attrs: { id: "navigation-example" }
+        },
+        [
+          _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "navbar-wrapper" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "navbar-brand",
+                  attrs: { href: "javascript:void(0)" }
+                },
+                [_vm._v("Table List")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "navbar-toggler",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "collapse",
+                  "aria-controls": "navigation-index",
+                  "aria-expanded": "false",
+                  "aria-label": "Toggle navigation",
+                  "data-target": "#navigation-example"
+                }
+              },
+              [
+                _c("span", { staticClass: "sr-only" }, [
+                  _vm._v("Toggle navigation")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "collapse navbar-collapse justify-content-end" },
+              [
+                _c("form", { staticClass: "navbar-form" }, [
+                  _c("div", { staticClass: "input-group no-border" }, [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        value: "",
+                        placeholder: "Search..."
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default btn-round btn-just-icon",
+                        attrs: { type: "submit" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("search")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ripple-container" })
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "navbar-nav" }, [
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("dashboard")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Stats\n                                    "
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item dropdown" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: {
+                          href: "javscript:void(0)",
+                          id: "navbarDropdownMenuLink",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("notifications")
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "notification" }, [
+                          _vm._v("5")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Some Actions\n                                    "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu dropdown-menu-right",
+                        attrs: { "aria-labelledby": "navbarDropdownMenuLink" }
+                      },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [
+                            _vm._v(
+                              "Mike John responded to your\n                                        email"
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("You have 5 new tasks")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("You're now friend with Andrew")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("Another Notification")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-item",
+                            attrs: { href: "javascript:void(0)" }
+                          },
+                          [_vm._v("Another One")]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "nav-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("person")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                          _vm._v(
+                            "\n                                        Account\n                                    "
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-header card-header-primary" }, [
+                  _c("h4", { staticClass: "card-title " }, [
+                    _vm._v(
+                      "\n                                        Simple Table\n                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v(
+                      "\n                                        Here is a subtitle for this table\n                                    "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table" }, [
+                      _c("thead", { staticClass: " text-primary" }, [
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    ID\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Name\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Country\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    City\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Salary\n                                                "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        1\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Dakota Rice\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Niger\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Oud-Turnhout\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $36,738\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        2\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Minerva Hooper\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Curaçao\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sinaai-Waas\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $23,789\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        3\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sage Rodriguez\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Netherlands\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Baileux\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $56,142\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        4\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Philip Chaney\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Korea, South\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Overland Park\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $38,735\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        5\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Doris Greene\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Malawi\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Feldkirchen in\n                                                        Kärnten\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $63,542\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        6\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Mason Porter\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Chile\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Gloucester\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-primary" }, [
+                            _vm._v(
+                              "\n                                                        $78,615\n                                                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "card card-plain" }, [
+                _c("div", { staticClass: "card-header card-header-primary" }, [
+                  _c("h4", { staticClass: "card-title mt-0" }, [
+                    _vm._v(
+                      "\n                                        Table on Plain Background\n                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-category" }, [
+                    _vm._v(
+                      "\n                                        Here is a subtitle for this table\n                                    "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-hover" }, [
+                      _c("thead", {}, [
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    ID\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Name\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Country\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    City\n                                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("th", [
+                          _vm._v(
+                            "\n                                                    Salary\n                                                "
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        1\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Dakota Rice\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Niger\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Oud-Turnhout\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $36,738\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        2\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Minerva Hooper\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Curaçao\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sinaai-Waas\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $23,789\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        3\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Sage Rodriguez\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Netherlands\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Baileux\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $56,142\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        4\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Philip Chaney\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Korea, South\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Overland Park\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $38,735\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        5\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Doris Greene\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Malawi\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Feldkirchen in\n                                                        Kärnten\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $63,542\n                                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        6\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Mason Porter\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Chile\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        Gloucester\n                                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                                        $78,615\n                                                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "footer" }, [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("nav", { staticClass: "float-left" }, [
+            _c("ul", [
+              _c("li", [
+                _c("a", { attrs: { href: "https://www.creative-tim.com" } }, [
+                  _vm._v(
+                    "\n                                    Creative Tim\n                                "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  { attrs: { href: "https://creative-tim.com/presentation" } },
+                  [
+                    _vm._v(
+                      "\n                                    About Us\n                                "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "http://blog.creative-tim.com" } }, [
+                  _vm._v(
+                    "\n                                    Blog\n                                "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  { attrs: { href: "https://www.creative-tim.com/license" } },
+                  [
+                    _vm._v(
+                      "\n                                    Licenses\n                                "
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "copyright float-right", attrs: { id: "date" } },
+            [
+              _vm._v(
+                "\n                        , made with\n                        "
+              ),
+              _c("i", { staticClass: "material-icons" }, [_vm._v("favorite")]),
+              _vm._v(" by\n                        "),
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href: "https://www.creative-tim.com",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("Creative Tim")]
+              ),
+              _vm._v(
+                "\n                        for a better web.\n                    "
+              )
             ]
           )
         ])

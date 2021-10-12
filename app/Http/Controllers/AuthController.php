@@ -58,10 +58,10 @@ class AuthController extends Controller
         $input  = $request->only("username", "password"); //Specify Request
         try {
             if (!$token = JWTAuth::attempt($input)) {
-                return response()->json(["status" => false, 'error' => 'Wrong username or password'], 400);
+                return response()->json(["status" => false, 'message' => 'Wrong username or password'], 200);
             }
         } catch (JWTException $e) {
-            return response()->json(["status" => false, 'error' => 'could_not_create_token'], 500);
+            return response()->json(["status" => false, 'message' => 'could_not_create_token'], 500);
         }
 
         $user = UsersModel::where('username', $input['username'])->first();
@@ -69,7 +69,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => "Username does not exist."
-            ], 400);
+            ], 200);
         }
 
 
@@ -103,7 +103,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => false,
             'message' => "Email or password is wrong."
-        ], 400);
+        ], 200);
     }
 
     public function user()

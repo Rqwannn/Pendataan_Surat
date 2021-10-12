@@ -5,19 +5,31 @@ Vue.use(VueRouter);
 // Import File
 
 import Home from "../page/Home.vue";
-import Login from "../page/auth/login.vue"
+import Login from "../page/auth/login.vue";
+import SuratMasuk from "../page/SuratMasuk.vue"
+import SuratKeluar from "../page/SuratKeluar.vue"
 
 const Url = [
+    {
+        name : "Login",
+        path : "/",
+        component : Login
+    },
     {
         name : "Home",
         path : "/Home",
         component : Home
     },
     {
-        name : "Login",
-        path : "/",
-        component : Login
-    }
+        name : "SuratMasuk",
+        path : "/SuratMasuk",
+        component : SuratMasuk
+    },
+    {
+        name : "SuratKeluar",
+        path : "/SuratKeluar",
+        component : SuratKeluar
+    },
 ];
 
 const router = new VueRouter({

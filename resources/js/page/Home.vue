@@ -1,5 +1,6 @@
 <template>
-    <div class="dark-edition">
+    <div>
+      <div class="dark-edition">
         <div class="wrapper">
 
             <Header></Header>
@@ -514,6 +515,7 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -538,6 +540,7 @@
         },
         created() {
             this.$emit('header', 'Login');
-        },
+            this.$emit('seturl', `${this.$route.path}`)
+        }
     }
 </script>

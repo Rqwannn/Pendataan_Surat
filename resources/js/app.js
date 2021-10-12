@@ -17,6 +17,39 @@ new Vue({
     methods: {
         ChangeHeader: function(event){
             this.SetHeader = event;
+        },
+        checkTokens: function(event){
+            if(JSON.parse(localStorage.getItem('Authentication'))){
+                const getStorage = JSON.parse(localStorage.getItem('Authentication'));
+                const Time = new Date().getTime();
+
+                if(getStorage.waktu != null){
+                    if(Time > getStorage.waktu){
+                        const data = {
+                            status: false,
+                        }
+    
+                        localStorage.setItem('Authentication', JSON.stringify(data))
+                        this.$router.push(`/`).catch(() => {
+    
+                        });
+                    }
+                }
+                
+                if(getStorage.status){
+                    this.$router.push(`${event}`).catch(() => {
+
+                    });
+                } else {
+                    this.$router.push(`/`).catch(() => {
+
+                    });
+                }
+            } else {
+                this.$router.push(`/`).catch(() => {
+
+                });
+            }
         }
     }
 }).$mount('#app')

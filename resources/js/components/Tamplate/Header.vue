@@ -14,18 +14,18 @@
                             <p>Dashboard</p>
                         </a>
                     </router-link>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./user.html">
+                    <router-link tag="li" v-bind:to="{name : 'SuratMasuk'}" class="nav-item">
+                        <a class="nav-link">
                             <i class="material-icons">library_books</i>
                             <p>Surat Masuk</p>
                         </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./tables.html">
+                    </router-link>
+                    <router-link tag="li" v-bind:to="{name : 'SuratKeluar'}" class="nav-item">
+                        <a class="nav-link">
                             <i class="material-icons">library_books</i>
                             <p>Surat Keluar</p>
                         </a>
-                    </li>
+                    </router-link>
                 </ul>
             </div>
         </div>

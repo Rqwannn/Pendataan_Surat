@@ -28,7 +28,7 @@
 <body>
     <div id="app">
         {{-- <header-component v-bind:status="SetHeader"></header-component> --}}
-        <router-view @header="ChangeHeader($event)"></router-view>
+        <router-view @header="ChangeHeader($event)" @seturl="checkTokens($event)"></router-view>
         {{-- <footer-component></footer-component> --}}
     </div>
 
@@ -47,7 +47,7 @@
     <script src="{{asset('js')}}/bootstrap-notify.js"></script>
     <script src="{{asset('js')}}/material-dashboard.js?v=2.1.0"></script>
     <script src="{{asset('js')}}/demo.js"></script>
-      <script>
+    <script>
     $(document).ready(function() {
       $().ready(function() {
         $sidebar = $('.sidebar');
