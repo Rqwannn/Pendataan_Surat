@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidationIncomingMails;
-use App\Models\IncomingMail;
+use App\Models\OutgoingMail;
 use Illuminate\Http\Request;
 
-class IncomingMailController extends Controller
+class OutgoingMailController extends Controller
 {
 
     public function index()
     {
-        $incomingMail = IncomingMail::get();
+        $outgoingMails = OutgoingMail::get();
 
-        if ($incomingMail->isEmpty()) {
+        if ($outgoingMails->isEmpty()) {
             return response()->json([
                 'success' => false,
                 'message' => "Data not found."
@@ -23,13 +23,14 @@ class IncomingMailController extends Controller
         return response()->json([
             'success' => true,
             'message' => "Data found.",
-            'data' => $incomingMail
+            'data' => $outgoingMails
         ], 200);
     }
 
+
     public function store(ValidationIncomingMails $request)
     {
-        $mail = IncomingMail::create([
+        $mail = OutgoingMail::create([
             'title' => $request->title,
             'subject' => $request->subject,
             'from' => $request->from,
@@ -52,12 +53,11 @@ class IncomingMailController extends Controller
         ], 200);
     }
 
-
     public function show($id)
     {
-        $incomingMail = IncomingMail::where("id", $id)->first();
+        $outgoingMail = OutgoingMail::where("id", $id)->first();
 
-        if (!$incomingMail) {
+        if (!$outgoingMail) {
             return response()->json([
                 'success' => false,
                 'message' => "Data not found."
@@ -67,22 +67,23 @@ class IncomingMailController extends Controller
         return response()->json([
             'success' => true,
             'message' => "Data found.",
-            'data' => $incomingMail
+            'data' => $outgoingMail
         ], 200);
     }
 
+
     public function update(ValidationIncomingMails $request, $id)
     {
-        $incomingMail = IncomingMail::where("id", $id)->first();
+        $outgoingMail = OutgoingMail::where("id", $id)->first();
 
-        if (!$incomingMail) {
+        if (!$outgoingMail) {
             return response()->json([
                 'success' => false,
                 'message' => "Wrong id, please check your id."
             ], 200);
         }
 
-        $mail = IncomingMail::where("id", $id)->update([
+        $mail = OutgoingMail::where("id", $id)->update([
             'title' => $request->title,
             'subject' => $request->subject,
             'from' => $request->from,
@@ -98,7 +99,7 @@ class IncomingMailController extends Controller
             $message = "Data failed edited.";
         }
 
-        $mail = IncomingMail::where("id", $id)->first();
+        $mail = OutgoingMail::where("id", $id)->first();
 
         return response()->json([
             'status' => $status,
@@ -109,16 +110,16 @@ class IncomingMailController extends Controller
 
     public function destroy($id)
     {
-        $incomingMail = IncomingMail::where("id", $id)->first();
+        $outgoingMail = OutgoingMail::where("id", $id)->first();
 
-        if (!$incomingMail) {
+        if (!$outgoingMail) {
             return response()->json([
                 'success' => false,
                 'message' => "Wrong id, please check your id."
             ], 200);
         }
 
-        $delete = IncomingMail::where('id', $id)->delete();
+        $delete = OutgoingMail::where('id', $id)->delete();
 
         $status = true;
         $message = "Data successfully deleted.";
