@@ -7,6 +7,6 @@
 - npm run dev
 - copy .env.example .env (Windows), cp .env.example .env (Linux)
 - php artisan key:generate
-- php artisan server
+- php artisan serve
 - npm run watch
 - buka di browser dengan alamat: http://127.0.0.1:8000
