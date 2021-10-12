@@ -106,6 +106,7 @@
                             this.$router.push(`/${URL.name}`).catch(() => {
 
                             });
+                            
                           } else {
                             Swal.fire({
                               icon: 'error',

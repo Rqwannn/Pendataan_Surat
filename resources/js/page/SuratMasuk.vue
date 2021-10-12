@@ -54,7 +54,7 @@
                                 <div class="card">
                                     <div class="card-header card-header-primary d-flex" style="justify-content: space-between;">
                                         <div>
-                                            <h4 class="card-title ">
+                                            <h4 class="card-title">
                                                 Surat masuk
                                             </h4>
                                             <p class="card-category">
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="d-flex">
                                             <router-link tag="button" :to="{name : 'TambahSuratMasuk'}" class="btn btn-success">Tambah</router-link>
-                                            <button class="btn btn-info ml-2">Update</button>
+                                            <router-link tag="button" :to="{name : 'UpdateSuratMasuk'}" class="btn btn-info ml-3">Update</router-link>
                                         </div>
                                     </div>
                                     <div class="card-body">

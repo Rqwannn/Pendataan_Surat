@@ -9,6 +9,9 @@ import Login from "../page/auth/login.vue";
 import SuratMasuk from "../page/SuratMasuk.vue";
 import SuratKeluar from "../page/SuratKeluar.vue";
 import TambahSuratMasuk from "../page/FormSuratMasuk/Tambah.vue";
+import UpdateSuratMasuk from "../page/FormSuratMasuk/Update.vue";
+import TambahSuratKeluar from "../page/FormSuratKeluar/Tambah.vue";
+import UpdateSuratKeluar from "../page/FormSuratKeluar/Update.vue";
 
 const Url = [
     {
@@ -35,6 +38,21 @@ const Url = [
         name : "TambahSuratMasuk",
         path : "/TambahSuratMasuk",
         component : TambahSuratMasuk
+    },
+    {
+        name : "UpdateSuratMasuk",
+        path : "/UpdateSuratMasuk",
+        component : UpdateSuratMasuk
+    },
+    {
+        name : "TambahSuratKeluar",
+        path : "/TambahSuratKeluar",
+        component : TambahSuratKeluar
+    },
+    {
+        name : "UpdateSuratKeluar",
+        path : "/UpdateSuratKeluar",
+        component : UpdateSuratKeluar
     },
 ];
 

@@ -64,8 +64,8 @@
                                             </p>
                                         </div>
                                         <div class="d-flex">
-                                            <button class="btn btn-success">Tambah</button>
-                                            <button class="btn btn-info ml-2">Update</button>
+                                            <router-link tag="button" :to="{name : 'TambahSuratKeluar'}" class="btn btn-success">Tambah</router-link>
+                                            <router-link tag="button" :to="{name : 'UpdateSuratKeluar'}" class="btn btn-info ml-3">Update</router-link>
                                         </div>
                                     </div>
                                     <div class="card-body">
