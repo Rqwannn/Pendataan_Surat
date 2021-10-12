@@ -483,7 +483,7 @@
     export default {
         data () {
             return {
-                Title : "Surat Masuk | Simail",
+                Title : "Surat Keluar | Simail",
             }
         },
         components: {
