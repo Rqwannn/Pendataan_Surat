@@ -4,7 +4,7 @@
         <div v-else>
             <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text logo-normal">Creative Tim</a>
+                    <a href="/Home" class="simple-text logo-normal">SiMail</a>
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
