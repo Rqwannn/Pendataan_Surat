@@ -16,7 +16,7 @@ class IncomingMailController extends Controller
         if ($incomingMail->isEmpty()) {
             return response()->json([
                 'success' => false,
-                'message' => "Data not found."
+                'message' => "Incoming mail data not found"
             ], 200);
         }
 

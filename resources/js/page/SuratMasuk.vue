@@ -4,15 +4,13 @@
             <Header></Header>
 
             <div class="main-panel">
-                                <nav
+                <nav
                     class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top "
-                    id="navigation-example"
-                >
+                    id="navigation-example">
+
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="javascript:void(0)"
-                                >Jumlah Surat Masuk</a
-                            >
+                            <a class="navbar-brand" href="javascript:void(0)">Jumlah Surat Masuk</a>
                         </div>
                         <button
                             class="navbar-toggler"
@@ -49,20 +47,24 @@
                     </div>
                 </nav>
 
-                                <div class="content">
+                <div class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div
-                                        class="card-header card-header-primary"
-                                    >
-                                        <h4 class="card-title ">
-                                            Surat masuk
-                                        </h4>
-                                        <p class="card-category">
-                                            Jumlah dari keselurahan surat yang masuk
-                                        </p>
+                                    <div class="card-header card-header-primary d-flex" style="justify-content: space-between;">
+                                        <div>
+                                            <h4 class="card-title ">
+                                                Surat masuk
+                                            </h4>
+                                            <p class="card-category">
+                                                Jumlah dari keselurahan surat yang masuk
+                                            </p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <router-link tag="button" :to="{name : 'TambahSuratMasuk'}" class="btn btn-success">Tambah</router-link>
+                                            <button class="btn btn-info ml-2">Update</button>
+                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -75,18 +77,18 @@
                                                     <th>MAIL</th>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
+                                                    <tr v-for="result in ArrSuratMasuk" :key="result.id">
                                                         <td>
-                                                            Kerja Sama
+                                                            {{result.subject}}
                                                         </td>
                                                         <td>
-                                                            CEO
+                                                            {{result.title}}
                                                         </td>
                                                         <td>
-                                                            Ms Sunandar
+                                                            {{result.to}}
                                                         </td>
                                                         <td>
-                                                            PT ABDI JAYA MAKMUR
+                                                            {{result.from}}
                                                         </td>
                                                         <td
                                                             class="text-primary"
@@ -116,6 +118,8 @@
         data () {
             return {
                 Title : "Surat Masuk | Simail",
+                ArrSuratMasuk : [],
+                NotData: "",
             }
         },
         components: {
@@ -131,6 +135,39 @@
         },
         created() {
             this.$emit('seturl', `${this.$route.path}`);
+            this.getData();
+        },
+        methods: {
+          getData: function(){
+            const Data = JSON.parse(localStorage.getItem('Authentication'));
+
+            const config = {
+              headers: {
+                "Authorization": `Bearer ${Data.token}`,
+              }
+            }
+            
+            axios.get('/api/incoming_mails', config).then( response => {
+              if(response.data.success){
+                const DataSurat = response.data.data;
+                DataSurat.forEach( result => {
+                   this.ArrSuratMasuk.push(result);
+                });
+              } else {
+                  this.NotData += `${response.data.message}`;
+              }
+            }).catch( error => {
+              console.log(error);
+            })
+
+            if(this.NotData.length != 0){
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${this.NotData}`,
+              })
+            }
+          }
         }
     }
 </script>

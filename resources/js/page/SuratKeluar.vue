@@ -49,20 +49,24 @@
                     </div>
                 </nav>
 
-                                <div class="content">
+                <div class="content">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div
-                                        class="card-header card-header-primary"
-                                    >
-                                        <h4 class="card-title ">
-                                            Surat keluar
-                                        </h4>
-                                        <p class="card-category">
-                                            Jumlah dari keselurahan surat yang keluar
-                                        </p>
+                                    <div class="card-header card-header-primary d-flex" style="justify-content: space-between;">
+                                        <div>
+                                            <h4 class="card-title ">
+                                                Surat keluar
+                                            </h4>
+                                            <p class="card-category">
+                                                Jumlah dari keselurahan surat yang keluar
+                                            </p>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class="btn btn-success">Tambah</button>
+                                            <button class="btn btn-info ml-2">Update</button>
+                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -75,18 +79,18 @@
                                                     <th>MAIL</th>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
+                                                    <tr v-for="result in ArrSuratKeluar" :key="result.id">
                                                         <td>
-                                                            Kerja Sama
+                                                            {{result.subject}}
                                                         </td>
                                                         <td>
-                                                            CEO
+                                                            {{result.title}}
                                                         </td>
                                                         <td>
-                                                            Ms Sunandar
+                                                            {{result.to}}
                                                         </td>
                                                         <td>
-                                                            PT ABDI JAYA MAKMUR
+                                                            {{result.from}}
                                                         </td>
                                                         <td
                                                             class="text-primary"
@@ -116,6 +120,8 @@
         data () {
             return {
                 Title : "Surat Keluar | Simail",
+                ArrSuratKeluar : [],
+                NotData: "",
             }
         },
         components: {
@@ -131,6 +137,39 @@
         },
         created() {
             this.$emit('seturl', `${this.$route.path}`);
+            this.getData();
+        },
+        methods: {
+          getData: function(){
+            const Data = JSON.parse(localStorage.getItem('Authentication'));
+
+            const config = {
+              headers: {
+                "Authorization": `Bearer ${Data.token}`,
+              }
+            }
+            
+            axios.get('/api/outgoing_mails', config).then( response => {
+              if(response.data.success){
+                const DataSurat = response.data.data;
+                DataSurat.forEach( result => {
+                   this.ArrSuratKeluar.push(result);
+                });
+              } else {
+                  this.NotData += `${response.data.message}`;
+              }
+            }).catch( error => {
+              console.log(error);
+            })
+
+            if(this.NotData.length != 0){
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${this.NotData}`,
+              })
+            }
+          }
         }
     }
 </script>

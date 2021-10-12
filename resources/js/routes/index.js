@@ -6,8 +6,9 @@ Vue.use(VueRouter);
 
 import Home from "../page/Home.vue";
 import Login from "../page/auth/login.vue";
-import SuratMasuk from "../page/SuratMasuk.vue"
-import SuratKeluar from "../page/SuratKeluar.vue"
+import SuratMasuk from "../page/SuratMasuk.vue";
+import SuratKeluar from "../page/SuratKeluar.vue";
+import TambahSuratMasuk from "../page/FormSuratMasuk/Tambah.vue";
 
 const Url = [
     {
@@ -29,6 +30,11 @@ const Url = [
         name : "SuratKeluar",
         path : "/SuratKeluar",
         component : SuratKeluar
+    },
+    {
+        name : "TambahSuratMasuk",
+        path : "/TambahSuratMasuk",
+        component : TambahSuratMasuk
     },
 ];
 

@@ -2045,12 +2045,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      Title: "Home | Simail"
+      Title: "Home | Simail",
+      TotalDataSurat: 0,
+      DataSuratMasuk: 0,
+      DataSuratKeluar: 0,
+      NotData: "",
+      NotFoundIncomingMail: false,
+      ArrSuratMasuk: [],
+      ArrSuratKeluar: []
     };
   },
   components: {
@@ -2067,6 +2073,71 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.$emit('header', 'Login');
     this.$emit('seturl', "".concat(this.$route.path));
+  },
+  mounted: function mounted() {
+    this.getData();
+  },
+  methods: {
+    axiosWrapper: function axiosWrapper(response, status) {
+      var _this = this;
+
+      if (response.data.success) {
+        var DataSurat = response.data.data;
+        var TotalData = DataSurat.length;
+        this.TotalDataSurat += TotalData;
+
+        if (status == "SuratMasuk") {
+          this.DataSuratMasuk = TotalData;
+          DataSurat.forEach(function (result) {
+            _this.ArrSuratMasuk.push(result);
+          });
+        } else {
+          this.DataSuratKeluar = TotalData;
+          DataSurat.forEach(function (result) {
+            _this.ArrSuratKeluar.push(result);
+          });
+        }
+      } else {
+        if (status == "SuratMasuk") {
+          this.NotFoundIncomingMail = true;
+          this.NotData += "".concat(response.data.message);
+        } else {
+          if (this.NotFoundIncomingMail) {
+            this.NotData += " And ".concat(response.data.message);
+          } else {
+            this.NotData += "".concat(response.data.message);
+          }
+        }
+      }
+    },
+    getData: function getData() {
+      var _this2 = this;
+
+      var Data = JSON.parse(localStorage.getItem('Authentication'));
+      var config = {
+        headers: {
+          "Authorization": "Bearer ".concat(Data.token)
+        }
+      };
+      axios.get('/api/incoming_mails', config).then(function (response) {
+        _this2.axiosWrapper(response, 'SuratMasuk');
+      })["catch"](function (error) {
+        console.log(error);
+      });
+      axios.get('/api/outgoing_mails', config).then(function (response) {
+        _this2.axiosWrapper(response, 'SuratKeluar');
+      })["catch"](function (error) {
+        console.log(error);
+      });
+
+      if (this.NotData.length != 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "".concat(this.NotData)
+        });
+      }
+    }
   }
 });
 
@@ -2195,11 +2266,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      Title: "Surat Keluar | Simail"
+      Title: "Surat Keluar | Simail",
+      ArrSuratKeluar: [],
+      NotData: ""
     };
   },
   components: {
@@ -2215,6 +2292,39 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.$emit('seturl', "".concat(this.$route.path));
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var Data = JSON.parse(localStorage.getItem('Authentication'));
+      var config = {
+        headers: {
+          "Authorization": "Bearer ".concat(Data.token)
+        }
+      };
+      axios.get('/api/outgoing_mails', config).then(function (response) {
+        if (response.data.success) {
+          var DataSurat = response.data.data;
+          DataSurat.forEach(function (result) {
+            _this.ArrSuratKeluar.push(result);
+          });
+        } else {
+          _this.NotData += "".concat(response.data.message);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+
+      if (this.NotData.length != 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "".concat(this.NotData)
+        });
+      }
+    }
   }
 });
 
@@ -2343,11 +2453,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      Title: "Surat Masuk | Simail"
+      Title: "Surat Masuk | Simail",
+      ArrSuratMasuk: [],
+      NotData: ""
     };
   },
   components: {
@@ -2363,6 +2477,39 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.$emit('seturl', "".concat(this.$route.path));
+    this.getData();
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var Data = JSON.parse(localStorage.getItem('Authentication'));
+      var config = {
+        headers: {
+          "Authorization": "Bearer ".concat(Data.token)
+        }
+      };
+      axios.get('/api/incoming_mails', config).then(function (response) {
+        if (response.data.success) {
+          var DataSurat = response.data.data;
+          DataSurat.forEach(function (result) {
+            _this.ArrSuratMasuk.push(result);
+          });
+        } else {
+          _this.NotData += "".concat(response.data.message);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+
+      if (this.NotData.length != 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "".concat(this.NotData)
+        });
+      }
+    }
   }
 });
 
@@ -2616,9 +2763,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _page_auth_login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../page/auth/login.vue */ "./resources/js/page/auth/login.vue");
 /* harmony import */ var _page_SuratMasuk_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../page/SuratMasuk.vue */ "./resources/js/page/SuratMasuk.vue");
 /* harmony import */ var _page_SuratKeluar_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../page/SuratKeluar.vue */ "./resources/js/page/SuratKeluar.vue");
+/* harmony import */ var _page_FormSuratMasuk_Tambah_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../page/FormSuratMasuk/Tambah.vue */ "./resources/js/page/FormSuratMasuk/Tambah.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default); // Import File
+
 
 
 
@@ -2640,6 +2789,10 @@ var Url = [{
   name: "SuratKeluar",
   path: "/SuratKeluar",
   component: _page_SuratKeluar_vue__WEBPACK_IMPORTED_MODULE_5__.default
+}, {
+  name: "TambahSuratMasuk",
+  path: "/TambahSuratMasuk",
+  component: _page_FormSuratMasuk_Tambah_vue__WEBPACK_IMPORTED_MODULE_6__.default
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
   // linkActiveClass: "active",
@@ -38073,6 +38226,43 @@ component.options.__file = "resources/js/components/Tamplate/Header.vue"
 
 /***/ }),
 
+/***/ "./resources/js/page/FormSuratMasuk/Tambah.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/page/FormSuratMasuk/Tambah.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tambah.vue?vue&type=template&id=0d8775c0& */ "./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
+  script,
+  _Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/page/FormSuratMasuk/Tambah.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/page/Home.vue":
 /*!************************************!*\
   !*** ./resources/js/page/Home.vue ***!
@@ -38326,6 +38516,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_0d8775c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tambah.vue?vue&type=template&id=0d8775c0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0&");
+
+
+/***/ }),
+
 /***/ "./resources/js/page/Home.vue?vue&type=template&id=1d9ee871&":
 /*!*******************************************************************!*\
   !*** ./resources/js/page/Home.vue?vue&type=template&id=1d9ee871& ***!
@@ -38509,6 +38716,31 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/FormSuratMasuk/Tambah.vue?vue&type=template&id=0d8775c0& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/Home.vue?vue&type=template&id=1d9ee871&":
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/page/Home.vue?vue&type=template&id=1d9ee871& ***!
@@ -38525,15 +38757,184 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "dark-edition" }, [
-      _c(
-        "div",
-        { staticClass: "wrapper" },
-        [_c("Header"), _vm._v(" "), _vm._m(0)],
-        1
-      )
-    ])
+  return _c("div", { staticClass: "dark-edition" }, [
+    _c(
+      "div",
+      { staticClass: "wrapper" },
+      [
+        _c("Header"),
+        _vm._v(" "),
+        _c("div", { staticClass: "main-panel" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" },
+                  [
+                    _c("div", { staticClass: "card card-stats" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-header card-header-warning card-header-icon"
+                        },
+                        [
+                          _vm._m(1),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-category" }, [
+                            _vm._v("Jumlah Surat Masuk")
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "card-title" }, [
+                            _c("span", { staticClass: "DataSuratMasuk" }, [
+                              _vm._v(_vm._s(_vm.DataSuratMasuk))
+                            ]),
+                            _vm._v(" "),
+                            _c("small", [_vm._v("Surat")])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" },
+                  [
+                    _c("div", { staticClass: "card card-stats" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-header card-header-success card-header-icon"
+                        },
+                        [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-category" }, [
+                            _vm._v("Jumlah Surat Keluar")
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "card-title" }, [
+                            _c("span", { staticClass: "DataSuratKeluar" }, [
+                              _vm._v(_vm._s(_vm.DataSuratKeluar))
+                            ]),
+                            _vm._v(" "),
+                            _c("small", [_vm._v("Surat")])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" },
+                  [
+                    _c("div", { staticClass: "card card-stats" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card-header card-header-danger card-header-icon"
+                        },
+                        [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-category" }, [
+                            _vm._v("Jumlah Keseluruhan")
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "card-title" }, [
+                            _c(
+                              "span",
+                              { staticClass: "DataSuratKeseluruhan" },
+                              [_vm._v(_vm._s(_vm.TotalDataSurat))]
+                            ),
+                            _vm._v(" "),
+                            _c("small", [_vm._v("Surat")])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(6)
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-12" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(7),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body table-responsive" }, [
+                      _c("table", { staticClass: "table table-hover" }, [
+                        _vm._m(8),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.ArrSuratMasuk, function(result) {
+                            return _c("tr", { key: result.id }, [
+                              _c("td", [_vm._v(_vm._s(result.subject))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.title))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.to))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.from))])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 col-md-12" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body table-responsive" }, [
+                      _c("table", { staticClass: "table table-hover" }, [
+                        _vm._m(10),
+                        _vm._v(" "),
+                        _c(
+                          "tbody",
+                          _vm._l(_vm.ArrSuratKeluar, function(result) {
+                            return _c("tr", { key: result.id }, [
+                              _c("td", [_vm._v(_vm._s(result.subject))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.title))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.to))]),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(result.from))])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -38541,57 +38942,57 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-panel" }, [
-      _c(
-        "nav",
-        {
-          staticClass:
-            "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
-          attrs: { id: "navigation-example" }
-        },
-        [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "navbar-wrapper" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-brand",
-                  attrs: { href: "javascript:void(0)" }
-                },
-                [_vm._v("Dashboard")]
-              )
-            ]),
-            _vm._v(" "),
+    return _c(
+      "nav",
+      {
+        staticClass:
+          "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
+        attrs: { id: "navigation-example" }
+      },
+      [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "navbar-wrapper" }, [
             _c(
-              "button",
+              "a",
               {
-                staticClass: "navbar-toggler",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "collapse",
-                  "aria-controls": "navigation-index",
-                  "aria-expanded": "false",
-                  "aria-label": "Toggle navigation",
-                  "data-target": "#navigation-example"
-                }
+                staticClass: "navbar-brand",
+                attrs: { href: "javascript:void(0)" }
               },
-              [
-                _c("span", { staticClass: "sr-only" }, [
-                  _vm._v("Toggle navigation")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "collapse navbar-collapse justify-content-end" },
-              [
+              [_vm._v("Dashboard")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "navbar-toggler",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "aria-controls": "navigation-index",
+                "aria-expanded": "false",
+                "aria-label": "Toggle navigation",
+                "data-target": "#navigation-example"
+              }
+            },
+            [
+              _c("span", { staticClass: "sr-only" }, [
+                _vm._v("Toggle navigation")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse navbar-collapse justify-content-end" },
+            [
+              _c("ul", [
                 _c("li", { staticClass: "nav-item" }, [
                   _c(
                     "a",
@@ -38612,195 +39013,111 @@ var staticRenderFns = [
                     ]
                   )
                 ])
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "card card-stats" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-header card-header-warning card-header-icon"
-                  },
-                  [
-                    _c("div", { staticClass: "card-icon" }, [
-                      _c("i", { staticClass: "material-icons" }, [
-                        _vm._v("content_copy")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-category" }, [
-                      _vm._v("Jumlah Surat Masuk")
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("1\n                "),
-                      _c("small", [_vm._v("Surat")])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
-                  _c("div", { staticClass: "stats" })
-                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "card card-stats" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-header card-header-success card-header-icon"
-                  },
-                  [
-                    _c("div", { staticClass: "card-icon" }, [
-                      _c("i", { staticClass: "material-icons" }, [
-                        _vm._v("store")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-category" }, [
-                      _vm._v("Jumlah Surat Keluar")
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("1\n                "),
-                      _c("small", [_vm._v("Surat")])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
-                  _c("div", { staticClass: "stats" })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-xl-4 col-lg-6 col-md-6 col-sm-6" }, [
-              _c("div", { staticClass: "card card-stats" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "card-header card-header-danger card-header-icon"
-                  },
-                  [
-                    _c("div", { staticClass: "card-icon" }, [
-                      _c("i", { staticClass: "material-icons" }, [
-                        _vm._v("info_outline")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "card-category" }, [
-                      _vm._v("Jumlah Keseluruhan")
-                    ]),
-                    _vm._v(" "),
-                    _c("h3", { staticClass: "card-title" }, [
-                      _vm._v("2\n                "),
-                      _c("small", [_vm._v("Surat")])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
-                  _c("div", { staticClass: "stats" })
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-6 col-md-12" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header card-header-primary" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _vm._v("Jumlah Surat Masuk")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-category" }, [
-                    _vm._v("jumlah dari keselurahan surat yang masuk")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body table-responsive" }, [
-                  _c("table", { staticClass: "table table-hover" }, [
-                    _c("thead", { staticClass: "text-warning" }, [
-                      _c("th", [_vm._v("SUBJECT")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("TITLE")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("TO")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("FROM")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", [_vm._v("Kerja Sama")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("CEO")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Ms Sunandar")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("PT ABDI JAYA MAKMUR")])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6 col-md-12" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header card-header-primary" }, [
-                  _c("h4", { staticClass: "card-title" }, [
-                    _vm._v("Jumlah Surat Keluar")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-category" }, [
-                    _vm._v("jumlah dari keselurahan surat yang Keluar")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body table-responsive" }, [
-                  _c("table", { staticClass: "table table-hover" }, [
-                    _c("thead", { staticClass: "text-warning" }, [
-                      _c("th", [_vm._v("SUBJECT")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("TITLE")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("TO")]),
-                      _vm._v(" "),
-                      _c("th", [_vm._v("FROM")])
-                    ]),
-                    _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td", [_vm._v("Kerja Sama")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("CEO")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("Ms Sunandar")]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v("PT ABDI JAYA MAKMUR")])
-                      ])
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
+            ]
+          )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("content_copy")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c("div", { staticClass: "stats" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("store")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c("div", { staticClass: "stats" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("info_outline")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c("div", { staticClass: "stats" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header card-header-primary" }, [
+      _c("h4", { staticClass: "card-title" }, [_vm._v("Jumlah Surat Masuk")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-category" }, [
+        _vm._v("jumlah dari keselurahan surat yang masuk")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "text-warning" }, [
+      _c("th", [_vm._v("SUBJECT")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TITLE")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TO")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("FROM")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header card-header-primary" }, [
+      _c("h4", { staticClass: "card-title" }, [_vm._v("Jumlah Surat Keluar")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-category" }, [
+        _vm._v("jumlah dari keselurahan surat yang Keluar")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "text-warning" }, [
+      _c("th", [_vm._v("SUBJECT")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TITLE")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TO")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("FROM")])
     ])
   }
 ]
@@ -38830,160 +39147,69 @@ var render = function() {
     _c(
       "div",
       { staticClass: "wrapper" },
-      [_c("Header"), _vm._v(" "), _vm._m(0)],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-panel" }, [
-      _c(
-        "nav",
-        {
-          staticClass:
-            "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
-          attrs: { id: "navigation-example" }
-        },
-        [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "navbar-wrapper" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-brand",
-                  attrs: { href: "javascript:void(0)" }
-                },
-                [_vm._v("Jumlah Surat Keluar")]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "navbar-toggler",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "collapse",
-                  "aria-controls": "navigation-index",
-                  "aria-expanded": "false",
-                  "aria-label": "Toggle navigation",
-                  "data-target": "#navigation-example"
-                }
-              },
-              [
-                _c("span", { staticClass: "sr-only" }, [
-                  _vm._v("Toggle navigation")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "collapse navbar-collapse justify-content-end" },
-              [
-                _c("ul", { staticClass: "navbar-nav" }, [
-                  _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { href: "javascript:void(0)" }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("person")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
-                          _vm._v(
-                            "\n                                        Account\n                                    "
+      [
+        _c("Header"),
+        _vm._v(" "),
+        _c("div", { staticClass: "main-panel" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c("table", { staticClass: "table" }, [
+                          _vm._m(2),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.ArrSuratKeluar, function(result) {
+                              return _c("tr", { key: result.id }, [
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.subject) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.title) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.to) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.from) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", { staticClass: "text-primary" }, [
+                                  _vm._v(
+                                    "\n                                                        FILE\n                                                    "
+                                  )
+                                ])
+                              ])
+                            }),
+                            0
                           )
-                        ])
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header card-header-primary" }, [
-                  _c("h4", { staticClass: "card-title " }, [
-                    _vm._v(
-                      "\n                                        Surat keluar\n                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-category" }, [
-                    _vm._v(
-                      "\n                                        Jumlah dari keselurahan surat yang keluar\n                                    "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "table-responsive" }, [
-                    _c("table", { staticClass: "table" }, [
-                      _c("thead", { staticClass: " text-primary" }, [
-                        _c("th", [_vm._v("SUBJECT")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("TITLE")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("TO")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("FROM")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("MAIL")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        Kerja Sama\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        CEO\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        Ms Sunandar\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        PT ABDI JAYA MAKMUR\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "text-primary" }, [
-                            _vm._v(
-                              "\n                                                        FILE\n                                                    "
-                            )
-                          ])
                         ])
                       ])
                     ])
@@ -38993,7 +39219,141 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      {
+        staticClass:
+          "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
+        attrs: { id: "navigation-example" }
+      },
+      [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "navbar-wrapper" }, [
+            _c(
+              "a",
+              {
+                staticClass: "navbar-brand",
+                attrs: { href: "javascript:void(0)" }
+              },
+              [_vm._v("Jumlah Surat Keluar")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "navbar-toggler",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "aria-controls": "navigation-index",
+                "aria-expanded": "false",
+                "aria-label": "Toggle navigation",
+                "data-target": "#navigation-example"
+              }
+            },
+            [
+              _c("span", { staticClass: "sr-only" }, [
+                _vm._v("Toggle navigation")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse navbar-collapse justify-content-end" },
+            [
+              _c("ul", { staticClass: "navbar-nav" }, [
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [
+                      _c("i", { staticClass: "material-icons" }, [
+                        _vm._v("person")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                        _vm._v(
+                          "\n                                        Account\n                                    "
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "card-header card-header-primary d-flex",
+        staticStyle: { "justify-content": "space-between" }
+      },
+      [
+        _c("div", [
+          _c("h4", { staticClass: "card-title " }, [
+            _vm._v(
+              "\n                                            Surat keluar\n                                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-category" }, [
+            _vm._v(
+              "\n                                            Jumlah dari keselurahan surat yang keluar\n                                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex" }, [
+          _c("button", { staticClass: "btn btn-success" }, [_vm._v("Tambah")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "btn btn-info ml-2" }, [_vm._v("Update")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: " text-primary" }, [
+      _c("th", [_vm._v("SUBJECT")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TITLE")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TO")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("FROM")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("MAIL")])
     ])
   }
 ]
@@ -39023,160 +39383,101 @@ var render = function() {
     _c(
       "div",
       { staticClass: "wrapper" },
-      [_c("Header"), _vm._v(" "), _vm._m(0)],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-panel" }, [
-      _c(
-        "nav",
-        {
-          staticClass:
-            "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
-          attrs: { id: "navigation-example" }
-        },
-        [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "navbar-wrapper" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "navbar-brand",
-                  attrs: { href: "javascript:void(0)" }
-                },
-                [_vm._v("Jumlah Surat Masuk")]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "navbar-toggler",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "collapse",
-                  "aria-controls": "navigation-index",
-                  "aria-expanded": "false",
-                  "aria-label": "Toggle navigation",
-                  "data-target": "#navigation-example"
-                }
-              },
-              [
-                _c("span", { staticClass: "sr-only" }, [
-                  _vm._v("Toggle navigation")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
-                _vm._v(" "),
-                _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "collapse navbar-collapse justify-content-end" },
-              [
-                _c("ul", { staticClass: "navbar-nav" }, [
-                  _c("li", { staticClass: "nav-item" }, [
+      [
+        _c("Header"),
+        _vm._v(" "),
+        _c("div", { staticClass: "main-panel" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "card" }, [
                     _c(
-                      "a",
+                      "div",
                       {
-                        staticClass: "nav-link",
-                        attrs: { href: "javascript:void(0)" }
+                        staticClass: "card-header card-header-primary d-flex",
+                        staticStyle: { "justify-content": "space-between" }
                       },
                       [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("person")
-                        ]),
+                        _vm._m(1),
                         _vm._v(" "),
-                        _c("p", { staticClass: "d-lg-none d-md-block" }, [
-                          _vm._v(
-                            "\n                                        Account\n                                    "
-                          )
-                        ])
+                        _c(
+                          "div",
+                          { staticClass: "d-flex" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-success",
+                                attrs: {
+                                  tag: "button",
+                                  to: { name: "TambahSuratMasuk" }
+                                }
+                              },
+                              [_vm._v("Tambah")]
+                            ),
+                            _vm._v(" "),
+                            _c("button", { staticClass: "btn btn-info ml-2" }, [
+                              _vm._v("Update")
+                            ])
+                          ],
+                          1
+                        )
                       ]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header card-header-primary" }, [
-                  _c("h4", { staticClass: "card-title " }, [
-                    _vm._v(
-                      "\n                                        Surat masuk\n                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-category" }, [
-                    _vm._v(
-                      "\n                                        Jumlah dari keselurahan surat yang masuk\n                                    "
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("div", { staticClass: "table-responsive" }, [
-                    _c("table", { staticClass: "table" }, [
-                      _c("thead", { staticClass: " text-primary" }, [
-                        _c("th", [_vm._v("SUBJECT")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("TITLE")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("TO")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("FROM")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("MAIL")])
-                      ]),
-                      _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        Kerja Sama\n                                                    "
-                            )
-                          ]),
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c("table", { staticClass: "table" }, [
+                          _vm._m(2),
                           _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        CEO\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        Ms Sunandar\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "\n                                                        PT ABDI JAYA MAKMUR\n                                                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "text-primary" }, [
-                            _vm._v(
-                              "\n                                                        FILE\n                                                    "
-                            )
-                          ])
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.ArrSuratMasuk, function(result) {
+                              return _c("tr", { key: result.id }, [
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.subject) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.title) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.to) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(
+                                    "\n                                                        " +
+                                      _vm._s(result.from) +
+                                      "\n                                                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("td", { staticClass: "text-primary" }, [
+                                  _vm._v(
+                                    "\n                                                        FILE\n                                                    "
+                                  )
+                                ])
+                              ])
+                            }),
+                            0
+                          )
                         ])
                       ])
                     ])
@@ -39186,7 +39487,126 @@ var staticRenderFns = [
             ])
           ])
         ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      {
+        staticClass:
+          "navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ",
+        attrs: { id: "navigation-example" }
+      },
+      [
+        _c("div", { staticClass: "container-fluid" }, [
+          _c("div", { staticClass: "navbar-wrapper" }, [
+            _c(
+              "a",
+              {
+                staticClass: "navbar-brand",
+                attrs: { href: "javascript:void(0)" }
+              },
+              [_vm._v("Jumlah Surat Masuk")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "navbar-toggler",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "aria-controls": "navigation-index",
+                "aria-expanded": "false",
+                "aria-label": "Toggle navigation",
+                "data-target": "#navigation-example"
+              }
+            },
+            [
+              _c("span", { staticClass: "sr-only" }, [
+                _vm._v("Toggle navigation")
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "navbar-toggler-icon icon-bar" })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse navbar-collapse justify-content-end" },
+            [
+              _c("ul", { staticClass: "navbar-nav" }, [
+                _c("li", { staticClass: "nav-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { href: "javascript:void(0)" }
+                    },
+                    [
+                      _c("i", { staticClass: "material-icons" }, [
+                        _vm._v("person")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "d-lg-none d-md-block" }, [
+                        _vm._v(
+                          "\n                                        Account\n                                    "
+                        )
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h4", { staticClass: "card-title " }, [
+        _vm._v(
+          "\n                                            Surat masuk\n                                        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-category" }, [
+        _vm._v(
+          "\n                                            Jumlah dari keselurahan surat yang masuk\n                                        "
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: " text-primary" }, [
+      _c("th", [_vm._v("SUBJECT")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TITLE")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("TO")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("FROM")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("MAIL")])
     ])
   }
 ]
