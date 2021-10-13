@@ -117,9 +117,6 @@
                           }
                         }).catch((error) => {
                           console.log(error);
-                            // if(error.response.status == '403'){
-                            //     this.errors = error.response.data.pesan
-                            // }
                         })
                     }
                 }

@@ -63,7 +63,6 @@
                                         </div>
                                         <div class="d-flex">
                                             <router-link tag="button" :to="{name : 'TambahSuratMasuk'}" class="btn btn-success">Tambah</router-link>
-                                            <router-link tag="button" :to="{name : 'UpdateSuratMasuk'}" class="btn btn-info ml-3">Update</router-link>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -75,6 +74,7 @@
                                                     <th>TO</th>
                                                     <th>FROM</th>
                                                     <th>MAIL</th>
+                                                    <th>AKSI</th>
                                                 </thead>
                                                 <tbody>
                                                     <tr v-for="result in ArrSuratMasuk" :key="result.id">
@@ -94,6 +94,10 @@
                                                             class="text-primary"
                                                         >
                                                             FILE
+                                                        </td>
+                                                        <td>
+                                                            <router-link tag="button" :to="{name : 'UpdateSuratMasuk', params: {id: result.id}}" class="btn btn-info ml-3">Update</router-link>
+                                                            <button @click="DeleteData(`${result.id}`)" class="btn btn-danger ml-3">Delete</button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -138,6 +142,47 @@
             this.getData();
         },
         methods: {
+          DeleteData: function(e){
+            const Data = JSON.parse(localStorage.getItem('Authentication'));
+
+                Swal.fire({
+                    title: 'Apa Anda Yakin?',
+                    text: "Data Akan Segera Di Hapus",
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: 'red',
+                    confirmButtonText: 'Ya',
+                    cancelButtonText: 'Cancel'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const config = {
+                            headers: {
+                                "Authorization": `Bearer ${Data.token}`,
+                            }
+                        }
+
+                        axios.delete(`/api/incoming_mails/${e}`, config).then( response => {
+                            if(response.data.status){
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Berhasil',
+                                    text: `${response.data.message}`,
+                                })
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: `${response.data.message}`,
+                                })
+                            }
+                        }).catch( error => {
+                            console.log(error);
+                        })
+                    }  
+                })
+
+          },
           getData: function(){
             const Data = JSON.parse(localStorage.getItem('Authentication'));
 

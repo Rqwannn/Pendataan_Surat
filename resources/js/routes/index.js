@@ -16,12 +16,12 @@ import UpdateSuratKeluar from "../page/FormSuratKeluar/Update.vue";
 const Url = [
     {
         name : "Login",
-        path : "/",
+        path : "/Login",
         component : Login
     },
     {
         name : "Home",
-        path : "/Home",
+        path : "/",
         component : Home
     },
     {
@@ -41,8 +41,9 @@ const Url = [
     },
     {
         name : "UpdateSuratMasuk",
-        path : "/UpdateSuratMasuk",
-        component : UpdateSuratMasuk
+        path : "/UpdateSuratMasuk/:id",
+        component : UpdateSuratMasuk,
+        props: true
     },
     {
         name : "TambahSuratKeluar",
@@ -62,5 +63,22 @@ const router = new VueRouter({
     mode: "history",
     routes: Url
 });
+
+router.afterEach((to, from) => {
+    // Reinitialize perfect scrollbar
+    (async function() {
+        if (!$.fn.perfectScrollbar) return
+
+        // Wait for DOM updates
+        await Vue.nextTick()
+
+        const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+          
+        if (isWindows) {
+            // if we are on windows OS we activate the perfectScrollbar function
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+        }
+    })();
+})
 
 export default router;

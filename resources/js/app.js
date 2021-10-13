@@ -30,23 +30,29 @@ new Vue({
                         }
     
                         localStorage.setItem('Authentication', JSON.stringify(data))
-                        this.$router.push(`/`).catch(() => {
+                        this.$router.push(`/Login`).catch(() => {
     
                         });
                     }
                 }
                 
                 if(getStorage.status){
-                    this.$router.push(`${event}`).catch(() => {
-    
-                    });
+                    if(event == "/Login"){
+                        this.$router.push(`/`).catch(() => {
+        
+                        });
+                    } else {
+                        this.$router.push(`${event}`).catch(() => {
+        
+                        });
+                    }
                 } else {
-                    this.$router.push(`/`).catch(() => {
+                    this.$router.push(`/Login`).catch(() => {
 
                     });
                 }
             } else {
-                this.$router.push(`/`).catch(() => {
+                this.$router.push(`/Login`).catch(() => {
 
                 });
             }
