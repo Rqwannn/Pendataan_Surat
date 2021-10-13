@@ -30,6 +30,36 @@ class OutgoingMailController extends Controller
 
     public function store(ValidationIncomingMails $request)
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Get pdf uploaded file from user.
+        |--------------------------------------------------------------------------
+        */
+
+        $file_name = "";
+        if ($request->hasFile('file')) {
+            $file_ext = $request->file('file')->extension(); // Get an extension of file.
+
+            $destination_path = './files/'; // Define path.
+            $file = 'incoming_mail-' . time() . '.' . $file_ext; // Make random new name of file.
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Move the file to folder on server.
+            |--------------------------------------------------------------------------
+            */
+
+            if (!$request->file('file')->move($destination_path, $file)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => "Cannot upload file."
+                ], 200);
+            }
+
+            $file_name = $file; // set file name
+        }
+        
         $mail = OutgoingMail::create([
             'title' => $request->title,
             'subject' => $request->subject,
