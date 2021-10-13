@@ -320,7 +320,7 @@
                             }
                         }
 
-                        axios.post('/api/incoming_mails', WrapperData, config).then( response => {
+                        axios.put('/api/incoming_mails', WrapperData, config).then( response => {
                             if(response.data.success){
                                 Swal.fire({
                                     title: 'Berhasil',

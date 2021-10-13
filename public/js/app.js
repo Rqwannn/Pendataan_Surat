@@ -2555,7 +2555,7 @@ __webpack_require__.r(__webpack_exports__);
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
-          axios.post('/api/outgoing_mails', WrapperData, config).then(function (response) {
+          axios.put('/api/outgoing_mails', WrapperData, config).then(function (response) {
             if (response.data.success) {
               Swal.fire({
                 title: 'Berhasil',
@@ -3246,7 +3246,7 @@ __webpack_require__.r(__webpack_exports__);
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
-          axios.post('/api/incoming_mails', WrapperData, config).then(function (response) {
+          axios.put('/api/incoming_mails', WrapperData, config).then(function (response) {
             if (response.data.success) {
               Swal.fire({
                 title: 'Berhasil',
@@ -41606,7 +41606,7 @@ var staticRenderFns = [
                 staticClass: "navbar-brand",
                 attrs: { href: "javascript:void(0)" }
               },
-              [_vm._v("Tambah Surat Masuk")]
+              [_vm._v("Tambah Surat Keluar")]
             )
           ]),
           _vm._v(" "),
@@ -41673,11 +41673,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header card-header-primary" }, [
-      _c("h4", { staticClass: "card-title" }, [_vm._v("Tambah Surat Masuk")]),
+      _c("h4", { staticClass: "card-title" }, [_vm._v("Tambah Surat Keluar")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-category" }, [
         _vm._v(
-          "\n                                        Lengkapi Form Berrikut Ini Untuk Menambahkan Surat Masuk\n                                    "
+          "\n                                        Lengkapi Form Berikut Ini Untuk Menambahkan Surat Keluar\n                                    "
         )
       ])
     ])
@@ -42581,7 +42581,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "card-category" }, [
         _vm._v(
-          "\n                                        Lengkapi Form Berrikut Ini Untuk Menambahkan Surat Masuk\n                                    "
+          "\n                                        Lengkapi Form Berikut Ini Untuk Menambahkan Surat Masuk\n                                    "
         )
       ])
     ])

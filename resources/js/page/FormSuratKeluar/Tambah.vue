@@ -11,7 +11,7 @@
 
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
-                            <a class="navbar-brand" href="javascript:void(0)">Tambah Surat Masuk</a>
+                            <a class="navbar-brand" href="javascript:void(0)">Tambah Surat Keluar</a>
                         </div>
                         <button
                             class="navbar-toggler"
@@ -56,9 +56,9 @@
                                     <div
                                         class="card-header card-header-primary"
                                     >
-                                        <h4 class="card-title">Tambah Surat Masuk</h4>
+                                        <h4 class="card-title">Tambah Surat Keluar</h4>
                                         <p class="card-category">
-                                            Lengkapi Form Berrikut Ini Untuk Menambahkan Surat Masuk
+                                            Lengkapi Form Berikut Ini Untuk Menambahkan Surat Keluar
                                         </p>
                                     </div>
                                     <div class="card-body">

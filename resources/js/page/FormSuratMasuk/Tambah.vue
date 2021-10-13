@@ -58,7 +58,7 @@
                                     >
                                         <h4 class="card-title">Tambah Surat Masuk</h4>
                                         <p class="card-category">
-                                            Lengkapi Form Berrikut Ini Untuk Menambahkan Surat Masuk
+                                            Lengkapi Form Berikut Ini Untuk Menambahkan Surat Masuk
                                         </p>
                                     </div>
                                     <div class="card-body">
