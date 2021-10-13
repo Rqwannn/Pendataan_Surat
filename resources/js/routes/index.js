@@ -52,8 +52,9 @@ const Url = [
     },
     {
         name : "UpdateSuratKeluar",
-        path : "/UpdateSuratKeluar",
-        component : UpdateSuratKeluar
+        path : "/UpdateSuratKeluar/:id",
+        component : UpdateSuratKeluar,
+        props: true
     },
 ];
 

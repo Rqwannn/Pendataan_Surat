@@ -203,7 +203,7 @@
                 title: "",
                 phone: "",
                 content: "",
-                files: null,
+                file: null,
                 subjectWrong: "",
                 fromWrong: "",
                 toWrong: "",
@@ -232,7 +232,7 @@
         methods: {
             Upload (e){
                 this.PreviewImg = URL.createObjectURL(e.target.files[0]);
-                this.files = e.target.files[0];
+                this.file = e.target.files[0];
             },
             Submit: function(){
                 const WrapperData = new FormData();
@@ -265,7 +265,7 @@
                     } else if (this.content.length == 0 && i == 6){
                         this.success = false;
                         this.contentWrong = "Isi Surat Harus Di Isi";
-                    } else if(this.files == null && i == 7){
+                    } else if(this.file == null && i == 7){
                         this.success = false;
                         this.fileWrong = "File Harus Di Isi";
                     } else if(this.success && i == 8){
@@ -275,7 +275,7 @@
                         WrapperData.append('to', this.to);
                         WrapperData.append('phone', this.phone);
                         WrapperData.append('content', this.content);
-                        WrapperData.append('files', this.files);
+                        WrapperData.append('file', this.file);
 
                         const config = {
                             headers: {
