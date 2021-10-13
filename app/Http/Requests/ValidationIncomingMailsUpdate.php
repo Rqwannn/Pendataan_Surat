@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ValidationIncomingMails extends FormRequest
+class ValidationIncomingMailsUpdate extends FormRequest
 {
     public function authorize()
     {
@@ -19,7 +19,8 @@ class ValidationIncomingMails extends FormRequest
             "to" => "required",
             "phone" => "required",
             "content" => "required",
-            "file" => "required|mimes:pdf|max:10240"
+            "file" => "mimes:pdf|max:10240",
+            "old_file" => "required"
         ];
     }
 }
