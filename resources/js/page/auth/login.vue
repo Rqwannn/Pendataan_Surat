@@ -62,6 +62,7 @@
         },
         created() {
             this.$emit('header', 'Login');
+            this.$emit('seturl', `${this.$route.path}`);
         },
         methods: {
             handlerSubmit: function(URL){

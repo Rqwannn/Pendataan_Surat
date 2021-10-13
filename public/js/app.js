@@ -2672,6 +2672,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.$emit('seturl', "".concat(this.$route.path));
+    this.instanceScroll();
+  },
+  methods: {
+    instanceScroll: function instanceScroll() {// (function() {
+      //     const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+      //     if (isWindows) {
+      //         // if we are on windows OS we activate the perfectScrollbar function
+      //         $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+      //         $('html').addClass('perfect-scrollbar-on');
+      //     } else {
+      //         $('html').addClass('perfect-scrollbar-off');
+      //     }
+      // })();
+      // jangan pake vue gw cape
+    }
   }
 });
 
@@ -3645,6 +3660,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.$emit('header', 'Login');
+    this.$emit('seturl', "".concat(this.$route.path));
   },
   methods: {
     handlerSubmit: function handlerSubmit(URL) {

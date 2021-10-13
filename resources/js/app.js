@@ -38,7 +38,7 @@ new Vue({
                 
                 if(getStorage.status){
                     this.$router.push(`${event}`).catch(() => {
-
+    
                     });
                 } else {
                     this.$router.push(`/`).catch(() => {
