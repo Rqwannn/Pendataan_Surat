@@ -21,11 +21,7 @@ class CreateIncomingMailsTable extends Migration
             $table->string("to");
             $table->string("phone");
             $table->longText("content");
-<<<<<<< HEAD
-            $table->longText("file_name");
-=======
             $table->longText("file");
->>>>>>> ae2c60a0d196f46ad83f907df1cc90eb44a8989d
             $table->timestamps();
         });
     }
