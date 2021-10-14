@@ -10,7 +10,7 @@
                   <h3>Sign In to <strong>Simail</strong></h3>
                   <p class="mb-4">Please Login first to access this as administrator.</p>
                 </div>
-                <form action="" method="post" @submit.prevent="handlerSubmit({name: 'Home'})">
+                <form action="" method="post" @submit.prevent="handlerSubmit()">
 
                   <div class="form-group first">
                     <label for="username">Username</label>
@@ -104,7 +104,7 @@
                             }
                             localStorage.setItem('Authentication', JSON.stringify(data));
 
-                            this.$router.push(`/${URL.name}`).catch(() => {
+                            this.$router.push(`/`).catch(() => {
 
                             });
                             

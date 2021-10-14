@@ -135,6 +135,7 @@
                                                             type="file"
                                                             class="form-control"
                                                             @change="Upload($event)"
+                                                            Accept="application/pdf"
                                                         />
                                                         <img :src="PreviewImg" v-if="PreviewImg != ''" class="ml-3" style="width: 100px;">
                                                         <p class="mt-2 text-danger">{{fileWrong}}</p>
@@ -279,12 +280,13 @@
 
                         const config = {
                             headers: {
+                                "Accept" : "application/pdf",
                                 "Authorization": `Bearer ${Data.token}`,
                             }
                         }
 
                         axios.post('/api/outgoing_mails', WrapperData, config).then( response => {
-                            if(response.data.success){
+                            if(response.data.status){
                                 Swal.fire({
                                     title: 'Berhasil',
                                     text: "Data berhasil di tambahkan",
@@ -294,7 +296,7 @@
                                     confirmButtonText: 'Ok'
                                     }).then((result) => {
                                     if (result.isConfirmed) {
-                                        this.$router.push(`/TambahSuratMasuk`).catch(() => {
+                                        this.$router.push(`/SuratKeluar`).catch(() => {
 
                                         });
                                     }

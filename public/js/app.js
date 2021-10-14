@@ -1890,8 +1890,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['status']
+  props: ['status'],
+  methods: {
+    Logout: function Logout() {
+      localStorage.removeItem('Authentication');
+      this.$router.push("/Login")["catch"](function () {});
+    }
+  }
 });
 
 /***/ }),
@@ -1908,6 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
 //
 //
 //
@@ -2188,11 +2201,12 @@ __webpack_require__.r(__webpack_exports__);
           WrapperData.append('file', this.file);
           var config = {
             headers: {
+              "Accept": "application/pdf",
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
           axios.post('/api/outgoing_mails', WrapperData, config).then(function (response) {
-            if (response.data.success) {
+            if (response.data.status) {
               Swal.fire({
                 title: 'Berhasil',
                 text: "Data berhasil di tambahkan",
@@ -2202,7 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
                 confirmButtonText: 'Ok'
               }).then(function (result) {
                 if (result.isConfirmed) {
-                  _this.$router.push("/TambahSuratMasuk")["catch"](function () {});
+                  _this.$router.push("/SuratKeluar")["catch"](function () {});
                 }
               });
             } else {
@@ -2235,6 +2249,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
 //
 //
 //
@@ -2552,11 +2567,12 @@ __webpack_require__.r(__webpack_exports__);
           WrapperData.append('file', this.file);
           var config = {
             headers: {
+              "Accept": "application/json",
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
           axios.put('/api/outgoing_mails', WrapperData, config).then(function (response) {
-            if (response.data.success) {
+            if (response.data.status) {
               Swal.fire({
                 title: 'Berhasil',
                 text: "".concat(response.data.message),
@@ -2566,7 +2582,7 @@ __webpack_require__.r(__webpack_exports__);
                 confirmButtonText: 'Ok'
               }).then(function (result) {
                 if (result.isConfirmed) {
-                  _this2.$router.push("/TambahSuratKeluar")["catch"](function () {});
+                  _this2.$router.push("/SuratKeluar")["catch"](function () {});
                 }
               });
             } else {
@@ -2599,6 +2615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
 //
 //
 //
@@ -2879,11 +2896,14 @@ __webpack_require__.r(__webpack_exports__);
           WrapperData.append('file', this.file);
           var config = {
             headers: {
+              "Accept": "application/json",
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
           axios.post('/api/incoming_mails', WrapperData, config).then(function (response) {
-            if (response.data.success) {
+            console.log(response);
+
+            if (response.data.status) {
               Swal.fire({
                 title: 'Berhasil',
                 text: "Data berhasil di tambahkan",
@@ -2893,7 +2913,7 @@ __webpack_require__.r(__webpack_exports__);
                 confirmButtonText: 'Ok'
               }).then(function (result) {
                 if (result.isConfirmed) {
-                  _this.$router.push("/TambahSuratMasuk")["catch"](function () {});
+                  _this.$router.push("/SuratMasuk")["catch"](function () {});
                 }
               });
             } else {
@@ -2926,6 +2946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_Tamplate_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Tamplate/Header */ "./resources/js/components/Tamplate/Header.vue");
+//
 //
 //
 //
@@ -3243,11 +3264,12 @@ __webpack_require__.r(__webpack_exports__);
           WrapperData.append('file', this.file);
           var config = {
             headers: {
+              "Accept": "application/pdf",
               "Authorization": "Bearer ".concat(Data.token)
             }
           };
           axios.put('/api/incoming_mails', WrapperData, config).then(function (response) {
-            if (response.data.success) {
+            if (response.data.status) {
               Swal.fire({
                 title: 'Berhasil',
                 text: "".concat(response.data.message),
@@ -3257,7 +3279,7 @@ __webpack_require__.r(__webpack_exports__);
                 confirmButtonText: 'Ok'
               }).then(function (result) {
                 if (result.isConfirmed) {
-                  _this2.$router.push("/TambahSuratMasuk")["catch"](function () {});
+                  _this2.$router.push("/SuratMasuk")["catch"](function () {});
                 }
               });
             } else {
@@ -3673,7 +3695,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       Title: "Surat Keluar | Simail",
       ArrSuratKeluar: [],
-      NotData: ""
+      NotData: "",
+      Role: 0
     };
   },
   components: {
@@ -3693,6 +3716,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     DeleteData: function DeleteData(e) {
+      var _this = this;
+
       var Data = JSON.parse(localStorage.getItem('Authentication'));
       Swal.fire({
         title: 'Apa Anda Yakin?',
@@ -3717,6 +3742,9 @@ __webpack_require__.r(__webpack_exports__);
                 title: 'Berhasil',
                 text: "".concat(response.data.message)
               });
+              _this.ArrSuratKeluar = [];
+
+              _this.getData();
             } else {
               Swal.fire({
                 icon: 'error',
@@ -3731,7 +3759,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getData: function getData() {
-      var _this = this;
+      var _this2 = this;
 
       var Data = JSON.parse(localStorage.getItem('Authentication'));
       var config = {
@@ -3739,14 +3767,15 @@ __webpack_require__.r(__webpack_exports__);
           "Authorization": "Bearer ".concat(Data.token)
         }
       };
+      this.Role = Data.role;
       axios.get('/api/outgoing_mails', config).then(function (response) {
         if (response.data.success) {
           var DataSurat = response.data.data;
           DataSurat.forEach(function (result) {
-            _this.ArrSuratKeluar.push(result);
+            _this2.ArrSuratKeluar.push(result);
           });
         } else {
-          _this.NotData += "".concat(response.data.message);
+          _this2.NotData += "".concat(response.data.message);
         }
       })["catch"](function (error) {
         console.log(error);
@@ -3900,7 +3929,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       Title: "Surat Masuk | Simail",
       ArrSuratMasuk: [],
-      NotData: ""
+      NotData: "",
+      Role: 0
     };
   },
   components: {
@@ -3920,6 +3950,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     DeleteData: function DeleteData(e) {
+      var _this = this;
+
       var Data = JSON.parse(localStorage.getItem('Authentication'));
       Swal.fire({
         title: 'Apa Anda Yakin?',
@@ -3944,6 +3976,9 @@ __webpack_require__.r(__webpack_exports__);
                 title: 'Berhasil',
                 text: "".concat(response.data.message)
               });
+              _this.ArrSuratMasuk = [];
+
+              _this.getData();
             } else {
               Swal.fire({
                 icon: 'error',
@@ -3958,7 +3993,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getData: function getData() {
-      var _this = this;
+      var _this2 = this;
 
       var Data = JSON.parse(localStorage.getItem('Authentication'));
       var config = {
@@ -3966,14 +4001,15 @@ __webpack_require__.r(__webpack_exports__);
           "Authorization": "Bearer ".concat(Data.token)
         }
       };
+      this.Role = Data.role;
       axios.get('/api/incoming_mails', config).then(function (response) {
         if (response.data.success) {
           var DataSurat = response.data.data;
           DataSurat.forEach(function (result) {
-            _this.ArrSuratMasuk.push(result);
+            _this2.ArrSuratMasuk.push(result);
           });
         } else {
-          _this.NotData += "".concat(response.data.message);
+          _this2.NotData += "".concat(response.data.message);
         }
       })["catch"](function (error) {
         console.log(error);
@@ -4106,7 +4142,7 @@ __webpack_require__.r(__webpack_exports__);
               };
               localStorage.setItem('Authentication', JSON.stringify(data));
 
-              _this.$router.push("/".concat(URL.name))["catch"](function () {});
+              _this.$router.push("/")["catch"](function () {});
             } else {
               Swal.fire({
                 icon: 'error',
@@ -4328,11 +4364,11 @@ router.afterEach(function (to, from) {
             return vue__WEBPACK_IMPORTED_MODULE_1__.default.nextTick();
 
           case 4:
-            isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+            isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
 
             if (isWindows) {
               // if we are on windows OS we activate the perfectScrollbar function
-              $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+              $(".sidebar .sidebar-wrapper, .main-panel").perfectScrollbar();
             }
 
           case 6:
@@ -41228,6 +41264,20 @@ var render = function() {
                         _c("p", [_vm._v("Surat Keluar")])
                       ])
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "nav-item",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.Logout()
+                        }
+                      }
+                    },
+                    [_vm._m(1)]
                   )
                 ],
                 1
@@ -41245,9 +41295,19 @@ var staticRenderFns = [
     return _c("div", { staticClass: "logo" }, [
       _c(
         "a",
-        { staticClass: "simple-text logo-normal", attrs: { href: "/Home" } },
+        { staticClass: "simple-text logo-normal", attrs: { href: "/" } },
         [_vm._v("SiMail")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "nav-link" }, [
+      _c("i", { staticClass: "material-icons" }),
+      _vm._v(" "),
+      _c("p", [_vm._v("Logout")])
     ])
   }
 ]
@@ -41456,7 +41516,11 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("input", {
                                   staticClass: "form-control",
-                                  attrs: { id: "file", type: "file" },
+                                  attrs: {
+                                    id: "file",
+                                    type: "file",
+                                    Accept: "application/pdf"
+                                  },
                                   on: {
                                     change: function($event) {
                                       return _vm.Upload($event)
@@ -41908,7 +41972,11 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("input", {
                                     staticClass: "form-control",
-                                    attrs: { id: "file", type: "file" },
+                                    attrs: {
+                                      id: "file",
+                                      type: "file",
+                                      Accept: "application/pdf"
+                                    },
                                     on: {
                                       change: function($event) {
                                         return _vm.Upload($event)
@@ -42360,7 +42428,11 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("input", {
                                   staticClass: "form-control",
-                                  attrs: { id: "file", type: "file" },
+                                  attrs: {
+                                    id: "file",
+                                    type: "file",
+                                    Accept: "application/pdf"
+                                  },
                                   on: {
                                     change: function($event) {
                                       return _vm.Upload($event)
@@ -42812,7 +42884,11 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("input", {
                                     staticClass: "form-control",
-                                    attrs: { id: "file", type: "file" },
+                                    attrs: {
+                                      id: "file",
+                                      type: "file",
+                                      Accept: "application/pdf"
+                                    },
                                     on: {
                                       change: function($event) {
                                         return _vm.Upload($event)
@@ -43515,7 +43591,21 @@ var render = function() {
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "table-responsive" }, [
                         _c("table", { staticClass: "table" }, [
-                          _vm._m(2),
+                          _c("thead", { staticClass: " text-primary" }, [
+                            _c("th", [_vm._v("SUBJECT")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("TITLE")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("TO")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("FROM")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("MAIL")]),
+                            _vm._v(" "),
+                            _vm.Role == 1
+                              ? _c("th", [_vm._v("AKSI")])
+                              : _vm._e()
+                          ]),
                           _vm._v(" "),
                           _c(
                             "tbody",
@@ -43554,43 +43644,54 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { staticClass: "text-primary" }, [
-                                  _vm._v(
-                                    "\n                                                        FILE\n                                                    "
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "files/" + result.file,
+                                        target: "_blank"
+                                      }
+                                    },
+                                    [_vm._v("Lihat PDF")]
                                   )
                                 ]),
                                 _vm._v(" "),
                                 _c(
                                   "td",
                                   [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "btn btn-info ml-3",
-                                        attrs: {
-                                          tag: "button",
-                                          to: {
-                                            name: "UpdateSuratKeluar",
-                                            params: { id: result.id }
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Update")]
-                                    ),
+                                    _vm.Role == 1
+                                      ? _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn-info ml-3",
+                                            attrs: {
+                                              tag: "button",
+                                              to: {
+                                                name: "UpdateSuratKeluar",
+                                                params: { id: result.id }
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Update")]
+                                        )
+                                      : _vm._e(),
                                     _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-danger ml-3",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.DeleteData(
-                                              "" + result.id
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Delete")]
-                                    )
+                                    _vm.Role == 1
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-danger ml-3",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.DeleteData(
+                                                  "" + result.id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Delete")]
+                                        )
+                                      : _vm._e()
                                   ],
                                   1
                                 )
@@ -43712,24 +43813,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: " text-primary" }, [
-      _c("th", [_vm._v("SUBJECT")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("TITLE")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("TO")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("FROM")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("MAIL")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("AKSI")])
-    ])
   }
 ]
 render._withStripped = true
@@ -43802,7 +43885,21 @@ var render = function() {
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "table-responsive" }, [
                         _c("table", { staticClass: "table" }, [
-                          _vm._m(2),
+                          _c("thead", { staticClass: " text-primary" }, [
+                            _c("th", [_vm._v("SUBJECT")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("TITLE")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("TO")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("FROM")]),
+                            _vm._v(" "),
+                            _c("th", [_vm._v("MAIL")]),
+                            _vm._v(" "),
+                            _vm.Role == 1
+                              ? _c("th", [_vm._v("AKSI")])
+                              : _vm._e()
+                          ]),
                           _vm._v(" "),
                           _c(
                             "tbody",
@@ -43841,43 +43938,54 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { staticClass: "text-primary" }, [
-                                  _vm._v(
-                                    "\n                                                        FILE\n                                                    "
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href: "files/" + result.file,
+                                        target: "_blank"
+                                      }
+                                    },
+                                    [_vm._v("Lihat PDF")]
                                   )
                                 ]),
                                 _vm._v(" "),
                                 _c(
                                   "td",
                                   [
-                                    _c(
-                                      "router-link",
-                                      {
-                                        staticClass: "btn btn-info ml-3",
-                                        attrs: {
-                                          tag: "button",
-                                          to: {
-                                            name: "UpdateSuratMasuk",
-                                            params: { id: result.id }
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Update")]
-                                    ),
+                                    _vm.Role == 1
+                                      ? _c(
+                                          "router-link",
+                                          {
+                                            staticClass: "btn btn-info ml-3",
+                                            attrs: {
+                                              tag: "button",
+                                              to: {
+                                                name: "UpdateSuratMasuk",
+                                                params: { id: result.id }
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Update")]
+                                        )
+                                      : _vm._e(),
                                     _vm._v(" "),
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-danger ml-3",
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.DeleteData(
-                                              "" + result.id
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [_vm._v("Delete")]
-                                    )
+                                    _vm.Role == 1
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-danger ml-3",
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.DeleteData(
+                                                  "" + result.id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Delete")]
+                                        )
+                                      : _vm._e()
                                   ],
                                   1
                                 )
@@ -43999,24 +44107,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: " text-primary" }, [
-      _c("th", [_vm._v("SUBJECT")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("TITLE")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("TO")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("FROM")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("MAIL")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("AKSI")])
-    ])
   }
 ]
 render._withStripped = true
@@ -44057,7 +44147,7 @@ var render = function() {
                     on: {
                       submit: function($event) {
                         $event.preventDefault()
-                        return _vm.handlerSubmit({ name: "Home" })
+                        return _vm.handlerSubmit()
                       }
                     }
                   },
