@@ -14,72 +14,72 @@ import TambahSuratKeluar from "../page/FormSuratKeluar/Tambah.vue";
 import UpdateSuratKeluar from "../page/FormSuratKeluar/Update.vue";
 
 const Url = [
-    {
-        name : "Login",
-        path : "/Login",
-        component : Login
-    },
-    {
-        name : "Home",
-        path : "/",
-        component : Home
-    },
-    {
-        name : "SuratMasuk",
-        path : "/SuratMasuk",
-        component : SuratMasuk
-    },
-    {
-        name : "SuratKeluar",
-        path : "/SuratKeluar",
-        component : SuratKeluar
-    },
-    {
-        name : "TambahSuratMasuk",
-        path : "/TambahSuratMasuk",
-        component : TambahSuratMasuk
-    },
-    {
-        name : "UpdateSuratMasuk",
-        path : "/UpdateSuratMasuk/:id",
-        component : UpdateSuratMasuk,
-        props: true
-    },
-    {
-        name : "TambahSuratKeluar",
-        path : "/TambahSuratKeluar",
-        component : TambahSuratKeluar
-    },
-    {
-        name : "UpdateSuratKeluar",
-        path : "/UpdateSuratKeluar/:id",
-        component : UpdateSuratKeluar,
-        props: true
-    },
+  {
+    name: "Login",
+    path: "/Login",
+    component: Login,
+  },
+  {
+    name: "Home",
+    path: "/",
+    component: Home,
+  },
+  {
+    name: "SuratMasuk",
+    path: "/SuratMasuk",
+    component: SuratMasuk,
+  },
+  {
+    name: "SuratKeluar",
+    path: "/SuratKeluar",
+    component: SuratKeluar,
+  },
+  {
+    name: "TambahSuratMasuk",
+    path: "/TambahSuratMasuk",
+    component: TambahSuratMasuk,
+  },
+  {
+    name: "UpdateSuratMasuk",
+    path: "/UpdateSuratMasuk/:id",
+    component: UpdateSuratMasuk,
+    props: true,
+  },
+  {
+    name: "TambahSuratKeluar",
+    path: "/TambahSuratKeluar",
+    component: TambahSuratKeluar,
+  },
+  {
+    name: "UpdateSuratKeluar",
+    path: "/UpdateSuratKeluar/:id",
+    component: UpdateSuratKeluar,
+    props: true,
+  },
 ];
 
 const router = new VueRouter({
-    // linkActiveClass: "active",
-    linkExactActiveClass: "active",
-    mode: "history",
-    routes: Url
+  // linkActiveClass: "active",
+  linkExactActiveClass: "active",
+  mode: "history",
+  routes: Url,
 });
 
 router.afterEach((to, from) => {
-    // Reinitialize perfect scrollbar
-    (async function() {
-        if (!$.fn.perfectScrollbar) return
+  // Reinitialize perfect scrollbar
+  (async function () {
+    if (!$.fn.perfectScrollbar) return;
 
-        // Wait for DOM updates
-        await Vue.nextTick()
+    // Wait for DOM updates
+    await Vue.nextTick();
 
-        const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
-          
-        if (isWindows) {
-            // if we are on windows OS we activate the perfectScrollbar function
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-        }
-    })();
-})
+    const isWindows = navigator.platform.indexOf("Win") > -1 ? true : false;
+
+    if (isWindows) {
+      // if we are on windows OS we activate the perfectScrollbar function
+      $(".sidebar .sidebar-wrapper, .main-panel").perfectScrollbar();
+    }
+  })();
+});
 
 export default router;

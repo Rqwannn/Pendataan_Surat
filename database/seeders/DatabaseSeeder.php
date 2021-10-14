@@ -27,6 +27,20 @@ class DatabaseSeeder extends Seeder
             'role' => 1
         ]);
 
+        DB::table('users')->insert([
+            'name' => "Petter Quill",
+            'username' => "starlord",
+            'password' => bcrypt('starlord123'),
+            'role' => 1
+        ]);
+
+        DB::table('users')->insert([
+            'name' => "pancaran ratna mustika",
+            'username' => "anca",
+            'password' => bcrypt('anca123'),
+            'role' => 2
+        ]);
+
         /*
         |--------------------------------------------------------------------------
         | Seeder For table outgoing_mails.

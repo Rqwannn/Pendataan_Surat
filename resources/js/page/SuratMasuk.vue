@@ -74,7 +74,7 @@
                                                     <th>TO</th>
                                                     <th>FROM</th>
                                                     <th>MAIL</th>
-                                                    <th>AKSI</th>
+                                                    <th v-if="Role == 1">AKSI</th>
                                                 </thead>
                                                 <tbody>
                                                     <tr v-for="result in ArrSuratMasuk" :key="result.id">
@@ -93,11 +93,11 @@
                                                         <td
                                                             class="text-primary"
                                                         >
-                                                            FILE
+                                                            <a :href="'files/' + result.file" target="_blank">Lihat PDF</a>
                                                         </td>
                                                         <td>
-                                                            <router-link tag="button" :to="{name : 'UpdateSuratMasuk', params: {id: result.id}}" class="btn btn-info ml-3">Update</router-link>
-                                                            <button @click="DeleteData(`${result.id}`)" class="btn btn-danger ml-3">Delete</button>
+                                                            <router-link tag="button" v-if="Role == 1" :to="{name : 'UpdateSuratMasuk', params: {id: result.id}}" class="btn btn-info ml-3">Update</router-link>
+                                                            <button @click="DeleteData(`${result.id}`)" v-if="Role == 1" class="btn btn-danger ml-3">Delete</button>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -124,6 +124,7 @@
                 Title : "Surat Masuk | Simail",
                 ArrSuratMasuk : [],
                 NotData: "",
+                Role: 0
             }
         },
         components: {
@@ -169,6 +170,8 @@
                                     title: 'Berhasil',
                                     text: `${response.data.message}`,
                                 })
+                                this.ArrSuratMasuk = [];
+                                this.getData();
                             } else {
                                 Swal.fire({
                                     icon: 'error',
@@ -191,6 +194,8 @@
                 "Authorization": `Bearer ${Data.token}`,
               }
             }
+
+            this.Role = Data.role;
             
             axios.get('/api/incoming_mails', config).then( response => {
               if(response.data.success){

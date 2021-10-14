@@ -4,7 +4,7 @@
         <div v-else>
             <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
                 <div class="logo">
-                    <a href="/Home" class="simple-text logo-normal">SiMail</a>
+                    <a href="/" class="simple-text logo-normal">SiMail</a>
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
@@ -26,6 +26,12 @@
                             <p>Surat Keluar</p>
                         </a>
                     </router-link>
+                    <li @click.prevent='Logout()' class="nav-item">
+                        <a class="nav-link">
+                            <i class="material-icons"></i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -35,5 +41,13 @@
 <script>
     export default{
         props: ['status'],
+        methods: {
+            Logout: function(){
+                localStorage.removeItem('Authentication');
+                this.$router.push(`/Login`).catch(() => {
+
+                });
+            }
+        }
     }
 </script>
